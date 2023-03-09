@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "256249322371",
+    "project_id": "voluntr-f211c",
+    "storage_bucket": "voluntr-f211c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256249322371:android:78ce967668632a417574b6",
+        "android_client_info": {
+          "package_name": "com.example.voluntr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "256249322371-fmm72b2nr3q83ebp1a12tjec50h11ncg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.voluntr",
+            "certificate_hash": "f9e751646c2c8259c1222a38e20d78b87d2a6c52"
+          }
+        },
+        {
+          "client_id": "256249322371-kh6m46ffofgjiuqfclr6qlbcl86ml37t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFXJ3zG9syCh9h2pCkaE9QzQyoVTcK5Ns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "256249322371-kh6m46ffofgjiuqfclr6qlbcl86ml37t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
