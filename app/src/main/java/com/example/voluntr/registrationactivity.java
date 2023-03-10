@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,7 +21,9 @@ import com.google.firebase.auth.FirebaseUser;
 public class registrationactivity extends AppCompatActivity {
     private Button mRegister;
 
-    private EditText mEmail,mPassword;
+    private EditText mEmail,mPassword,mName;
+
+    private RadioGroup mRadioGroup;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthStateListener;
@@ -49,6 +52,7 @@ public class registrationactivity extends AppCompatActivity {
 
         mEmail = (EditText) findViewById(R.id.email);
         mPassword = (EditText) findViewById(R.id.password);
+        mRadioGroup = (RadioGroup) findViewById(R.id.volorg) ;
 
         mRegister.setOnClickListener(new View.OnClickListener() {
             @Override
