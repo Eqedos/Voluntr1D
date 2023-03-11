@@ -5,40 +5,77 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".registrationactivity">
-
-
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello, Welcome back!"
+        android:layout_gravity="left"
+        android:fontFamily="@font/OpenSansBold"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="35dp"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:layout_marginBottom="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email:"
+        android:layout_gravity="left"
+        android:layout_marginBottom="2dp"
+        android:fontFamily="@font/OpenSansBold"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:textSize="18dp"/>
     <EditText
         android:id="@+id/email"
-        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:background="@drawable/newshape"
+        android:padding="12dp"
         android:hint="@string/prompt_email"
         android:textSize="16sp"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/darker_gray"
-        android:inputType="textEmailAddress"/>
+        android:fontFamily="@font/OpenSansRegular"
+        android:textColorHint="@android:color/black"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/newshape"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:text="Password:"
+        android:layout_gravity="left"
+        android:fontFamily="@font/OpenSansBold"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:textSize="18dp"/>
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:background="@drawable/newshape"
+        android:padding="12dp"
         android:hint="@string/prompt_password"
         android:textSize="16sp"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/darker_gray"
-        android:inputType="textPassword"/>
-
-
+        android:textColorHint="@android:color/black"
+        android:inputType="textPassword"
+        android:fontFamily="@font/OpenSansRegular"
+        android:background="@drawable/newshape"/>
     <Button
         android:id="@+id/login2"
-        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_width="350dp"
+        android:layout_marginTop="280dp"
         android:layout_height="wrap_content"
-        android:text="Login" />
+        android:text="Login"
+        android:padding="12dp"
+        android:fontFamily="@font/OpenSansBold"
+        android:textSize="16dp"
+        android:textColor="@color/white" />
 
 
 </LinearLayout>
