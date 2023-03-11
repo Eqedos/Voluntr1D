@@ -6,42 +6,111 @@
     android:layout_height="match_parent"
     tools:context=".registrationactivity"
     android:orientation="vertical">
-    <EditText
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:text="Name:"
+        android:layout_gravity="left"
+        android:fontFamily="@font/opensansbold"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:textSize="18dp"/>
+    <EditText
         android:hint="Name"
-        android:id="@+id/name"/>
+        android:id="@+id/name"
+        android:layout_gravity="center"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:textColorHint="@android:color/black"
+        android:inputType="textPassword"
+        android:fontFamily="@font/opensansregular"
+        android:background="@drawable/newshape"/>/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:text="Email:"
+        android:layout_gravity="left"
+        android:fontFamily="@font/opensansbold"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:textSize="18dp"/>
+
+    <EditText
+        android:hint="@string/prompt_email"
+        android:id="@+id/email"
+        android:layout_gravity="center"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:textColorHint="@android:color/black"
+        android:inputType="textPassword"
+        android:fontFamily="@font/opensansregular"
+        android:background="@drawable/newshape"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:text="Password:"
+        android:layout_gravity="left"
+        android:fontFamily="@font/opensansbold"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:textSize="18dp"/>
+
+    <EditText
+        android:hint="@string/prompt_password"
+        android:id="@+id/password"
+        android:layout_gravity="center"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:textColorHint="@android:color/black"
+        android:inputType="textPassword"
+        android:fontFamily="@font/opensansregular"
+        android:background="@drawable/newshape"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Which would you like to sign up as?"/>
+        android:text="Are you interested in being an organizer or a volunteer?"
+        android:layout_gravity="left"
+        android:fontFamily="@font/opensansbold"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:textSize="18dp"/>
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/radioGroup">
+        android:id="@+id/radioGroup"
+        android:layout_marginLeft="30dp">
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Volunteer"/></RadioGroup>
-
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/prompt_email"
-        android:id="@+id/email"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/prompt_password"
-        android:id="@+id/password"
-        />
+            android:text="Volunteer"
+            android:textSize="18dp"
+            android:fontFamily="@font/opensansbold" /></RadioGroup>
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="Register"
-        android:id="@+id/register"/>
+        android:id="@+id/register"
+        android:layout_gravity="center"
+        android:layout_width="350dp"
+        android:layout_marginTop="160dp"
+        android:padding="12dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/opensansbold"
+        android:textSize="16dp"
+        android:textColor="@color/white"/>
 
 
 </LinearLayout>
