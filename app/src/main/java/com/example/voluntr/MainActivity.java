@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
     private orgcards cards_data[];
     private arrayAdapter arrayAdapter;
-    private int i;
     private FirebaseAuth mAuth;
+    private DatabaseReference usersDb;
 
     ListView listView;
     List<orgcards> rowItems;
@@ -39,7 +39,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //Makes main page
         setContentView(R.layout.activity_main); //Makes main page
+        usersDb = FirebaseDatabase.getInstance("https://voluntr-f211c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Users");
         mAuth=FirebaseAuth.getInstance(); //Gets the current user
+        String currentUId=mAuth.getCurrentUser().getUid();
         checkUserStatus(); //Checks if user is organiser/volunteer
         rowItems = new ArrayList<orgcards>();//s
 
@@ -60,14 +62,17 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onLeftCardExit(Object dataObject) {
-                //Do something on the left!
-                //You also have access to the original object.
-                //If you want to use it just cast it (String) dataObject
+                orgcards object1 = (orgcards) dataObject;
+                String userId = object1.getUserId();
+                usersDb.child(notuserStatus).child(userId).child("connections").child("No").child(currentUId).setValue(true);
                 Toast.makeText(MainActivity.this,"left", Toast.LENGTH_SHORT).show(); //Makes small bubble with the text
             }
 
             @Override
             public void onRightCardExit(Object dataObject) {
+                orgcards object1 = (orgcards) dataObject;
+                String userId = object1.getUserId();
+                usersDb.child(notuserStatus).child(userId).child("connections").child("Yes").child(currentUId).setValue(true);
                 Toast.makeText(MainActivity.this,"right", Toast.LENGTH_SHORT).show();
             }
 
@@ -124,11 +129,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getOppositeStatusUser(){
+        String currentUId=mAuth.getCurrentUser().getUid();
         DatabaseReference oppositeStatusDb = FirebaseDatabase.getInstance("https://voluntr-f211c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Users").child(notuserStatus);
         oppositeStatusDb.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                if (snapshot.exists()){
+                String currentUId=mAuth.getCurrentUser().getUid();
+                if (snapshot.exists() && !snapshot.child("connections").child("No").hasChild(currentUId) && !snapshot.child("connections").child("Yes").hasChild(currentUId)){
                     orgcards item = new orgcards(snapshot.getKey(),snapshot.child("Name").getValue().toString());
                     rowItems.add(item);
                     arrayAdapter.notifyDataSetChanged();
