@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,13 +22,17 @@ import com.google.firebase.database.core.view.View;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<String> al;
-    private ArrayAdapter<String> arrayAdapter;
+    private orgcards cards_data[];
+    private arrayAdapter arrayAdapter;
     private int i;
     private FirebaseAuth mAuth;
+
+    ListView listView;
+    List<orgcards> rowItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +41,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main); //Makes main page
         mAuth=FirebaseAuth.getInstance(); //Gets the current user
         checkUserStatus(); //Checks if user is organiser/volunteer
-        al = new ArrayList<>();
+        rowItems = new ArrayList<orgcards>();//s
 
-        arrayAdapter = new ArrayAdapter<>(this, R.layout.item, R.id.helloText, al );
+        arrayAdapter = new arrayAdapter(this, R.layout.item, rowItems );
 
         SwipeFlingAdapterView flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame);
 
@@ -49,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             public void removeFirstObjectInAdapter() {
                 // this is the simplest way to delete an object from the Adapter (/AdapterView)
                 Log.d("LIST", "removed object!");
-                al.remove(0);
+                rowItems.remove(0);
                 arrayAdapter.notifyDataSetChanged();
             }
 
@@ -124,7 +129,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 if (snapshot.exists()){
-                    al.add(snapshot.child("Name").getValue().toString());
+                    orgcards item = new orgcards(snapshot.getKey(),snapshot.child("Name").getValue().toString());
+                    rowItems.add(item);
                     arrayAdapter.notifyDataSetChanged();
                 }
 
