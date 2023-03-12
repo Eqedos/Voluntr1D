@@ -26,7 +26,7 @@
         android:padding="12dp"
         android:textSize="16sp"
         android:textColorHint="@android:color/black"
-        android:inputType="textPassword"
+        android:inputType="textPersonName"
         android:fontFamily="@font/opensansregular"
         android:background="@drawable/newshape"/>/>
 
@@ -51,7 +51,7 @@
         android:padding="12dp"
         android:textSize="16sp"
         android:textColorHint="@android:color/black"
-        android:inputType="textPassword"
+        android:inputType="textEmailAddress"
         android:fontFamily="@font/opensansregular"
         android:background="@drawable/newshape"/>
 
@@ -98,6 +98,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Volunteer"
+            android:textSize="18dp"
+            android:fontFamily="@font/opensansbold" />
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Organiser"
             android:textSize="18dp"
             android:fontFamily="@font/opensansbold" /></RadioGroup>
     <Button
