@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 orgcards object1 = (orgcards) dataObject;
                 String userId = object1.getUserId();
                 usersDb.child(notuserStatus).child(userId).child("connections").child("Yes").child(currentUId).setValue(true);
-                Toast.makeText(MainActivity.this,"right", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,"You have been added to the organisations chat", Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
     private String userStatus;
     private String notuserStatus;
     public void checkUserStatus(){
@@ -169,5 +170,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this,LoginRegActivity.class);
         startActivity(intent);
         finish();
+        }
+        public void goToProfile(android.view.View view) {
+        Intent intent = new Intent(MainActivity.this,AccountProfile.class);
+            startActivity(intent);
+
+
         }
 }
