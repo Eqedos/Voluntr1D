@@ -32,9 +32,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        mAuth=FirebaseAuth.getInstance();
-        checkUserStatus();
+        //Makes main page
+        setContentView(R.layout.activity_main); //Makes main page
+        mAuth=FirebaseAuth.getInstance(); //Gets the current user
+        checkUserStatus(); //Checks if user is organiser/volunteer
         al = new ArrayList<>();
 
         arrayAdapter = new ArrayAdapter<>(this, R.layout.item, R.id.helloText, al );
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 //Do something on the left!
                 //You also have access to the original object.
                 //If you want to use it just cast it (String) dataObject
-                Toast.makeText(MainActivity.this,"left", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,"left", Toast.LENGTH_SHORT).show(); //Makes small bubble with the text
             }
 
             @Override
@@ -87,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
     private String userStatus;
     private String notuserStatus;
     public void checkUserStatus(){
-        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser(); //Gets the user object of user
         DatabaseReference volDb = FirebaseDatabase.getInstance("https://voluntr-f211c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Users").child("Volunteer");
         volDb.addChildEventListener(new ChildEventListener() {
             @Override
