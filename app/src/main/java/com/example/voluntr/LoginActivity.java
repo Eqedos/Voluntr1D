@@ -64,11 +64,16 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        onStart();{
-            mAuth.addAuthStateListener(firebaseAuthStateListener);
-        };
-        onStop();{
-            mAuth.removeAuthStateListener(firebaseAuthStateListener);
-        }
     };
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(firebaseAuthStateListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mAuth.removeAuthStateListener(firebaseAuthStateListener);
+    }
 }
