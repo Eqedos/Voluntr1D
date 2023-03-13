@@ -186,10 +186,12 @@ public class AccountProfile extends AppCompatActivity {
 
 
         }
-
-
-
     }
 
-
+    public void logoutUser(android.view.View view) {
+        mAuth.signOut();
+        Intent intent = new Intent(AccountProfile.this,LoginRegActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }

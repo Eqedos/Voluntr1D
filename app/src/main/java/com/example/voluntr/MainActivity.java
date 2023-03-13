@@ -165,12 +165,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    public void logoutUser(android.view.View view) {
-        mAuth.signOut();
-        Intent intent = new Intent(MainActivity.this,LoginRegActivity.class);
-        startActivity(intent);
-        finish();
-        }
         public void goToProfile(android.view.View view) {
         Intent intent = new Intent(MainActivity.this,AccountProfile.class);
             startActivity(intent);
