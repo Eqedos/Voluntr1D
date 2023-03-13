@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -50,7 +51,7 @@ public class AccountProfile extends AppCompatActivity {
 
     private Uri resultUri;
     private String profileImageUrl;
-    private ActivityResultLauncher<String> mTakePhoto;
+    private ActivityResultLauncher<String> mTakePhotoLauncher;
 
 
 
@@ -70,19 +71,20 @@ public class AccountProfile extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         userId=mAuth.getCurrentUser().getUid();
         mVolDb = FirebaseDatabase.getInstance("https://voluntr-f211c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Users").child("Volunteer").child(userId);
-
+        mTakePhotoLauncher = registerForActivityResult(new ActivityResultContracts.GetContent(),
+                new ActivityResultCallback<Uri>() {
+                    @Override
+                    public void onActivityResult(Uri uri) {
+                        // handle the result here
+                        resultUri = uri;
+                        mProfilePic.setImageURI(resultUri);
+                    }
+                });
         getUserInfo();
         mProfilePic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mTakePhoto = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
-                    @Override
-                    public void onActivityResult(Uri result) {
-                        resultUri=result;
-                        mProfilePic.setImageURI(resultUri);
-                    }
-                });
-
+                mTakePhotoLauncher.launch("image/*");
             }
         });
         mConfirm.setOnClickListener(new View.OnClickListener() {
@@ -160,7 +162,6 @@ public class AccountProfile extends AppCompatActivity {
             bitmap.compress(Bitmap.CompressFormat.JPEG, 20,baos);
             byte[] data = baos.toByteArray();
             UploadTask uploadTask = filepath.putBytes(data);
-            // Assume 'storageRef' is a StorageReference to the file you want to download
             filepath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {
@@ -169,6 +170,7 @@ public class AccountProfile extends AppCompatActivity {
                     Map userInfo = new HashMap();
                     userInfo.put("profileImageUrl", downloadUrl.toString());
                     mVolDb.updateChildren(userInfo);
+                    Toast.makeText(AccountProfile.this,"Works",Toast.LENGTH_SHORT).show();
                     finish();
                     return;
                     // Do something with the download URL
@@ -177,6 +179,7 @@ public class AccountProfile extends AppCompatActivity {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     // Handle unsuccessful download URL retrieval
+                    Toast.makeText(AccountProfile.this,"Doesnt work",Toast.LENGTH_SHORT).show();
                     finish();
                 }
             });
