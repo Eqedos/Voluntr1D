@@ -4,9 +4,12 @@ public class orgcards {
 
     private String userId; //different from the one below
     private String name;
-    public orgcards (String userId, String  name){
+    private String profileImageUrl;
+    public orgcards (String userId, String  name, String profileImageUrl){
         this.userId = userId;
         this.name = name;
+        this.profileImageUrl = profileImageUrl;
+
     }
 
     // getter
@@ -22,5 +25,11 @@ public class orgcards {
     }
     public void setName(String name){
         this.name=name;
+    }
+    public String getProfileImageUrl(){
+        return profileImageUrl;
+    }
+    public void setProfileImageUrl(String profileImageUrl){
+        this.profileImageUrl=profileImageUrl;
     }
 }

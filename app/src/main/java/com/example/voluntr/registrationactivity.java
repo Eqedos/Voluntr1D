@@ -20,6 +20,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class registrationactivity extends AppCompatActivity {
     private Button mRegister;
@@ -75,8 +78,12 @@ public class registrationactivity extends AppCompatActivity {
                             Toast.makeText(registrationactivity.this, "Can't Sign Up", Toast.LENGTH_SHORT).show();
                         } else {
                             String userId = mAuth.getCurrentUser().getUid();
-                            DatabaseReference currentUserDb = FirebaseDatabase.getInstance("https://voluntr-f211c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Users").child(radioButton.getText().toString()).child(userId).child("Name");
-                            currentUserDb.setValue(Name);
+                            DatabaseReference currentUserDb = FirebaseDatabase.getInstance("https://voluntr-f211c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Users").child(userId);
+                            Map userInfo = new HashMap<>();
+                            userInfo.put("name",Name);
+                            userInfo.put("status",radioButton.getText().toString());
+                            userInfo.put("profileImageUrl", "default");
+                            currentUserDb.updateChildren(userInfo);
                             Toast.makeText(registrationactivity.this, "registered", Toast.LENGTH_SHORT).show();
                         }
                     }

@@ -47,7 +47,7 @@ public class AccountProfile extends AppCompatActivity {
     private ImageView mProfilePic;
     private FirebaseAuth mAuth;
     private DatabaseReference mVolDb;
-    private String userId, name, phone, age, bio;
+    private String userId, name, phone, age, bio, userStatus;
 
     private Uri resultUri;
     private String profileImageUrl;
@@ -59,7 +59,6 @@ public class AccountProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profileacticity);
-
         mName3 = (EditText) findViewById(R.id.name3);
         mPhone = (EditText) findViewById(R.id.Phone);
         mAge = (EditText) findViewById(R.id.age);
@@ -70,7 +69,7 @@ public class AccountProfile extends AppCompatActivity {
 
         mAuth=FirebaseAuth.getInstance();
         userId=mAuth.getCurrentUser().getUid();
-        mVolDb = FirebaseDatabase.getInstance("https://voluntr-f211c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Users").child("Volunteer").child(userId);
+        mVolDb = FirebaseDatabase.getInstance("https://voluntr-f211c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Users").child(userId);
         mTakePhotoLauncher = registerForActivityResult(new ActivityResultContracts.GetContent(),
                 new ActivityResultCallback<Uri>() {
                     @Override
@@ -119,13 +118,23 @@ public class AccountProfile extends AppCompatActivity {
                         bio = map.get("bio").toString();
                         mBio.setText(bio);
                     }
-                    if(map.get("age")!=null) {
-                        age = map.get("age").toString();
-                        mAge.setText(age);
+                    if(map.get("status")!=null) {
+                        userStatus = map.get("status").toString();
                     }
+                    if(map.get("phone")!=null) {
+                        phone = map.get("phone").toString();
+                        mPhone.setText(phone);
+                    Glide.clear(mProfilePic);
                     if(map.get("profileImageUrl")!=null) {
-                        profileImageUrl = map.get("profileImageUrl").toString();
-                        Glide.with(getApplication()).load(profileImageUrl).into(mProfilePic);
+                        profileImageUrl = map.get("profileImageUrl").toString();}
+                        switch (profileImageUrl){
+                            case "default":
+                                Glide.with(getApplication()).load(R.drawable.logofinal).into(mProfilePic);
+                                break;
+                            default:
+                                Glide.with(getApplication()).load(profileImageUrl).into(mProfilePic);
+                                break;
+                        }
                     }
 
                 }

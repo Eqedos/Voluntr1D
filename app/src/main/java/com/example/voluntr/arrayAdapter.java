@@ -1,12 +1,15 @@
 package com.example.voluntr;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -26,8 +29,17 @@ public class arrayAdapter extends ArrayAdapter<orgcards> {
         ImageView image = (ImageView) convertView.findViewById(R.id.image);
 
         name.setText(card_item.getName());
-        image.setImageResource(R.mipmap.ic_launcher);
+        switch (card_item.getProfileImageUrl()){
+            case "default":
+                Glide.with(convertView.getContext()).load(R.drawable.logofinal).into(image);
+                break;
+            default:
+                Glide.clear(image);
+                Glide.with(convertView.getContext()).load(card_item.getProfileImageUrl()).into(image);
+                break;
+        }
 
+        Glide.with(convertView.getContext()).load(card_item.getProfileImageUrl()).into(image);
         return convertView;
 
     }
