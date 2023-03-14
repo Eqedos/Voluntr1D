@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -19,7 +20,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.database.core.view.View;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 orgcards object1 = (orgcards) dataObject;
                 String userId = object1.getUserId();
                 usersDb.child(userId).child("connections").child("Yes").child(currentUId).setValue(true);
+                usersDb.child(currentUId).child("connections").child("Yes").child(userId).setValue(true);
                 Toast.makeText(MainActivity.this,"You have been added to the organisations chat", Toast.LENGTH_LONG).show();
             }
 
@@ -176,4 +177,9 @@ public class MainActivity extends AppCompatActivity {
         return;
         }
 
+    public void goToChat(android.view.View view) {
+        Intent intent = new Intent(MainActivity.this,ChatActivity.class);
+        startActivity(intent);
+        return;
+    }
 }

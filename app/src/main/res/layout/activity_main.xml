@@ -20,9 +20,15 @@
             android:layout_height="wrap_content"
             android:onClick="goToProfile"
             android:text="Profile"
-            app:layout_constraintBottom_toBottomOf="@+id/frame"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+             />
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/chats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Organisations"
+            android:onClick="goToChat"
+ />
     </LinearLayout>
 
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
