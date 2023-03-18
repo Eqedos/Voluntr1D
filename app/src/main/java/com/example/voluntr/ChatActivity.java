@@ -6,9 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
-import com.example.voluntr.data.ChatAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -39,12 +37,7 @@ public class ChatActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mChatLayoutManager);
         mChatAdapter = new ChatAdapter(getDataSetChats(), ChatActivity.this);
         mRecyclerView.setAdapter(mChatAdapter);
-        DetailsOfOrg obj = new DetailsOfOrg("ASD","ASD","default");
-        resultsChat.add(obj);
-        resultsChat.add(obj);
-        resultsChat.add(obj);
-        resultsChat.add(obj);
-        mChatAdapter.notifyDataSetChanged();
+        getuserchatId();
 
     }
 

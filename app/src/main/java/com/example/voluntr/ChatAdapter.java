@@ -1,4 +1,4 @@
-package com.example.voluntr.data;
+package com.example.voluntr;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,8 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.voluntr.DetailsOfOrg;
-import com.example.voluntr.R;
 
 import java.util.List;
 
@@ -46,6 +44,6 @@ public class ChatAdapter extends RecyclerView.Adapter<chatviewholder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return OrgList.size();
     }
 }

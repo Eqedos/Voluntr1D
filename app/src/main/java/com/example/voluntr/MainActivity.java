@@ -75,6 +75,25 @@ public class MainActivity extends AppCompatActivity {
                 String userId = object1.getUserId();
                 usersDb.child(userId).child("connections").child("Yes").child(currentUId).setValue(true);
                 usersDb.child(currentUId).child("connections").child("Yes").child(userId).setValue(true);
+                usersDb.child(userId).child("connections").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.child("ChatId").exists()){
+                            String key = snapshot.child("ChatId").getValue().toString();
+                            usersDb.child(userId).child("connections").child("ChatId").setValue(key);
+                            usersDb.child(currentUId).child("connections").child("ChatIds").child(userId).setValue(key);
+                        }
+                        else{
+                            String key = FirebaseDatabase.getInstance("https://voluntr-f211c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Chat").push().getKey();
+                            usersDb.child(userId).child("connections").child("ChatId").setValue(key);
+                            usersDb.child(currentUId).child("connections").child("ChatIds").child(userId).setValue(key);
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
                 Toast.makeText(MainActivity.this,"You have been added to the organisations chat", Toast.LENGTH_LONG).show();
             }
 
@@ -136,20 +155,21 @@ public class MainActivity extends AppCompatActivity {
         usersDb.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                String currentUId=mAuth.getCurrentUser().getUid();
-                if (snapshot.exists() && !snapshot.child("connections").child("No").hasChild(currentUId) && !snapshot.child("connections").child("Yes").hasChild(currentUId) && snapshot.child("status").getValue().toString().equals(notuserStatus)){
+                if(snapshot.child("status").getValue()!= null){
+                String currentUId = mAuth.getCurrentUser().getUid();
+                if (snapshot.exists() && !snapshot.child("connections").child("No").hasChild(currentUId) && !snapshot.child("connections").child("Yes").hasChild(currentUId) && snapshot.child("status").getValue().toString().equals(notuserStatus)) {
                     String profileImageUrl = "default";
-                    if (!snapshot.child("profileImageUrl").getValue().equals("default")){
-                        profileImageUrl=snapshot.child("profileImageUrl").getValue().toString();
+                    if (!snapshot.child("profileImageUrl").getValue().equals("default")) {
+                        profileImageUrl = snapshot.child("profileImageUrl").getValue().toString();
 
                     }
-                    orgcards item = new orgcards(snapshot.getKey(),snapshot.child("name").getValue().toString(),profileImageUrl);
+                    orgcards item = new orgcards(snapshot.getKey(), snapshot.child("name").getValue().toString(), profileImageUrl);
                     rowItems.add(item);
                     arrayAdapter.notifyDataSetChanged();
                 }
 
             }
-
+        }
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 

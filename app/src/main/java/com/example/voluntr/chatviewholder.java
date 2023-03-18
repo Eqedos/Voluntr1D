@@ -1,15 +1,17 @@
-package com.example.voluntr.data;
+package com.example.voluntr;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.voluntr.ChatBoxActivity;
 import com.example.voluntr.R;
-
-import org.w3c.dom.Text;
 
 public class chatviewholder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
@@ -27,6 +29,12 @@ public class chatviewholder extends RecyclerView.ViewHolder implements View.OnCl
 
     @Override
     public void onClick(View view) {
+        Toast.makeText(view.getContext(), "it works but not really",Toast.LENGTH_LONG);
+        Intent intent = new Intent(view.getContext(), ChatBoxActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("chatId",mChatId.getText().toString());
+        intent.putExtras(bundle);
+        view.getContext().startActivity(intent);
 
     }
 }
