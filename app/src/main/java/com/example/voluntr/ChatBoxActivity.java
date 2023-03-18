@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
@@ -59,6 +61,12 @@ public class ChatBoxActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     nameOfUser = snapshot.getValue().toString();
+                }
+                else{
+                    Toast.makeText(ChatBoxActivity.this, "Please make a profile",Toast.LENGTH_LONG);
+                    Intent intent = new Intent(ChatBoxActivity.this,AccountProfile.class);
+                    startActivity(intent);
+                    return;
                 }
             }
             @Override
