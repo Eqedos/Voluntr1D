@@ -54,5 +54,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/back"
         android:text="back"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/signmeout"
+        android:onClick="logoutUser"
+        android:text="Sign Out"/>
 
 </LinearLayout>
