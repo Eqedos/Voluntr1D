@@ -31,9 +31,9 @@ public class ChatBoxActivity extends AppCompatActivity {
 
     private EditText mSendEditText;
     private Button mSendButton;
-    private String currentUserID,chatId,chatboxId;
+    private String currentUserID,chatId,chatboxId,nameOfUser="default";
 
-    DatabaseReference mDbUser,mDbUserChat;
+    DatabaseReference mDbUser,mDbUserChat,mDbCurrentUserName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,7 @@ public class ChatBoxActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chat_box);
         chatId=getIntent().getExtras().getString("chatId");
         currentUserID= FirebaseAuth.getInstance().getCurrentUser().getUid();
+        mDbCurrentUserName = FirebaseDatabase.getInstance("https://voluntr-f211c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Users").child(currentUserID).child("name");
         mDbUser = FirebaseDatabase.getInstance("https://voluntr-f211c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Users").child(currentUserID).child("connections").child("ChatIds").child(chatId);
         mDbUserChat = FirebaseDatabase.getInstance("https://voluntr-f211c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Chat");
         getChatBoxId();
@@ -53,6 +54,18 @@ public class ChatBoxActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mChatBoxAdapter);
         mSendEditText = findViewById(R.id.message);
         mSendButton = findViewById(R.id.send);
+        mDbCurrentUserName.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    nameOfUser = snapshot.getValue().toString();
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         mSendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +75,7 @@ public class ChatBoxActivity extends AppCompatActivity {
     }
 
     private void sendMessage() {
-        String sendMessageText=mSendEditText.getText().toString();
+        String sendMessageText=nameOfUser+": "+mSendEditText.getText().toString();
         if(!sendMessageText.isEmpty()){
             DatabaseReference newmsgdb = mDbUserChat.push();
             Map newMessage = new HashMap();
