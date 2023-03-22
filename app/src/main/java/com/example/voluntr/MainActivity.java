@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
                         profileImageUrl = snapshot.child("profileImageUrl").getValue().toString();
 
                     }
-                    orgcards item = new orgcards(snapshot.getKey(), snapshot.child("name").getValue().toString(), profileImageUrl);
+                    orgcards item = new orgcards(snapshot.getKey(), snapshot.child("name").getValue().toString(), profileImageUrl, snapshot.child("age").getValue().toString());
                     rowItems.add(item);
                     arrayAdapter.notifyDataSetChanged();
                 }

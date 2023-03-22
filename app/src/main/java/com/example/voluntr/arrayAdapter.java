@@ -26,9 +26,11 @@ public class arrayAdapter extends ArrayAdapter<orgcards> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item, parent, false);
         }
         TextView name = (TextView) convertView.findViewById(R.id.name2);
+        TextView distance = (TextView) convertView.findViewById(R.id.distance);
         ImageView image = (ImageView) convertView.findViewById(R.id.image);
 
         name.setText(card_item.getName());
+        distance.setText("   Distance:  "+card_item.getAge()+"m");
         switch (card_item.getProfileImageUrl()){
             case "default":
                 Glide.with(convertView.getContext()).load(R.drawable.logofinal).into(image);

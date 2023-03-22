@@ -5,10 +5,22 @@ public class orgcards {
     private String userId; //different from the one below
     private String name;
     private String profileImageUrl;
-    public orgcards (String userId, String  name, String profileImageUrl){
+
+    private String age;
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public orgcards (String userId, String  name, String profileImageUrl, String age){
         this.userId = userId;
         this.name = name;
         this.profileImageUrl = profileImageUrl;
+        this.age=age;
 
     }
 
