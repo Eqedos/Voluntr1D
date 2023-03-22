@@ -168,7 +168,7 @@ public class AccountProfile extends AppCompatActivity {
             }
 
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 20,baos);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100,baos);
             byte[] data = baos.toByteArray();
             UploadTask uploadTask = filepath.putBytes(data);
             filepath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
