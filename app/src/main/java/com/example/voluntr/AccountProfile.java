@@ -66,7 +66,6 @@ public class AccountProfile extends AppCompatActivity {
         mAge = (EditText) findViewById(R.id.age);
         mBio = (EditText) findViewById(R.id.Bio);
         mProfilePic = (ImageView) findViewById(R.id.pfp);
-        mBack = (Button) findViewById(R.id.back);
         mConfirm = (Button) findViewById(R.id.confirm_button);
 
         mAuth=FirebaseAuth.getInstance();
@@ -92,13 +91,6 @@ public class AccountProfile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 saveUserInfo();
-            }
-        });
-        mBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-                return;
             }
         });
     }
@@ -202,6 +194,7 @@ public class AccountProfile extends AppCompatActivity {
 
 
         }
+        Toast.makeText(AccountProfile.this,"Profile Updated",Toast.LENGTH_SHORT);
     }
 
     public void logoutUser(android.view.View view) {

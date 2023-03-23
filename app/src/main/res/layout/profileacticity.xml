@@ -8,51 +8,93 @@
     tools:context=".AccountProfile"
     android:orientation="vertical"
     android:padding="16dp">
-
-    <ImageView
-        android:layout_width="100sp"
-        android:layout_height="100sp"
-        android:id="@+id/pfp"
-        android:src="@mipmap/ic_launcher"
-        android:layout_marginBottom="20sp"
-        android:layout_gravity="center" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name"
-        android:textColor="#03A9F4"
-        android:fontFamily="@font/comfortaa"
-        android:layout_gravity="center"/>
-
-    <EditText
-        android:id="@+id/name3"
-        android:layout_width="203dp"
-        android:layout_height="32dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300sp"
+        android:orientation="horizontal"
         android:layout_gravity="center"
-        android:layout_marginBottom="20sp"
-        android:background="@drawable/rectangle"
-        android:fontFamily="@font/comfortaa"
-        android:gravity="center"
-        android:hint="Name"
-        android:textColor="#FFFFFF" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Age"
-        android:textColor="#03A9F4"
-        android:layout_gravity="center"/>
+        android:layout_marginBottom="-30sp"
+        android:layout_marginTop="-20sp">
 
-    <EditText
-        android:id="@+id/age"
-        android:layout_width="148dp"
-        android:layout_height="32dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="20sp"
-        android:background="@drawable/rectangle"
-        android:gravity="center"
-        android:hint="Age"
-        android:inputType="number"
-        android:textColor="#FFFFFF" />
+        <ImageView
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="200sp"
+            android:id="@+id/pfp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginBottom="20sp"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:layout_gravity="center"
+                android:textColor="#03A9F4"
+                android:fontFamily="@font/comfortaa" />
+
+            <EditText
+                android:id="@+id/name3"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/roundborders"
+                android:fontFamily="@font/comfortaa"
+                android:gravity="center"
+                android:hint="Name"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Age"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textColor="#03A9F4" />
+
+            <EditText
+                android:id="@+id/age"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/roundborders"
+                android:gravity="center"
+                android:textColorHint="@color/white"
+                android:hint="Age"
+                android:inputType="number"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -63,16 +105,17 @@
 
     <EditText
         android:id="@+id/Phone"
-        android:layout_width="wrap_content"
+        android:layout_width="307dp"
         android:layout_height="32dp"
         android:layout_gravity="center"
         android:layout_marginBottom="20sp"
-        android:background="@drawable/rectangle"
+        android:background="@drawable/roundborders"
         android:fontFamily="@font/comfortaa"
         android:gravity="center"
         android:hint="Phone No."
         android:inputType="phone"
-        android:textColor="#FFFFFF" />
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -86,39 +129,56 @@
         android:layout_width="match_parent"
         android:layout_height="166dp"
         android:layout_marginBottom="20sp"
-        android:background="@drawable/rectangle"
-        android:textColor="#FFFFFF"
+        android:background="@drawable/borders"
+        android:textColor="@color/white"
         android:hint="Bio"
+        android:textColorHint="@color/white"
         android:inputType="textLongMessage"
         android:gravity="center"
         android:layout_gravity="center"
         android:textSize="15dp"
         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Events Completed:"
+        android:textColor="#03A9F4"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></HorizontalScrollView>
 
-    <Button
+    <EditText
         android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@drawable/borders"
+        android:text=""></EditText>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="10sp">
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_weight="1"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/confirm_button"
         android:text="confirm"
-        android:backgroundTint="#03A9F4"
-        android:textColor="#FFFFFF"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/back"
-        android:text="back"
-        android:backgroundTint="#03A9F4"
-        android:textColor="#FFFFFF"/>
-
-    <Button
-        android:layout_width="match_parent"
+        android:background="@drawable/borders"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="left|center"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_weight="1"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/signmeout"
         android:onClick="logoutUser"
         android:text="Sign Out"
-        android:backgroundTint="#03A9F4"
-        android:textColor="#FFFFFF"/>
+        android:background="@drawable/borders"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center"/></LinearLayout>
 
 </LinearLayout>
 
