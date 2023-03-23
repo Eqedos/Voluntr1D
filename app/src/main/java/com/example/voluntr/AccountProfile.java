@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentActivity;
 import android.app.Activity;
 import android.app.Instrumentation;
 import android.app.appsearch.StorageInfo;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -24,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -128,7 +130,8 @@ public class AccountProfile extends AppCompatActivity {
                     if(map.get("phone")!=null) {
                         phone = map.get("phone").toString();
                         mPhone.setText(phone);
-                    Glide.clear(mProfilePic);
+                        Context context=getApplicationContext();
+                    Glide.with(context).clear(mProfilePic);
                     if(map.get("profileImageUrl")!=null) {
                         profileImageUrl = map.get("profileImageUrl").toString();}
                         switch (profileImageUrl){
@@ -136,7 +139,7 @@ public class AccountProfile extends AppCompatActivity {
                                 Glide.with(getApplication()).load(R.drawable.logofinal).into(mProfilePic);
                                 break;
                             default:
-                                Glide.with(getApplication()).load(profileImageUrl).into(mProfilePic);
+                                Glide.with(getApplication()).load(profileImageUrl).transform(new CircleCrop()).into(mProfilePic);
                                 break;
                         }
                     }
