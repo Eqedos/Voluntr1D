@@ -1,20 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#8ED1FC"
+        android:alpha="0.8">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="User Profile"
+            android:textColor="#1E1E1E"
+            android:textSize="28sp"
+            android:fontFamily="@font/comfortaa"
+            android:textColorHighlight="@color/yellow"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="@drawable/roundborders"
     tools:context=".AccountProfile"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+        android:layout_marginTop="100dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="300sp"
         android:orientation="horizontal"
         android:layout_gravity="center"
-        android:layout_marginBottom="-30sp"
-        android:layout_marginTop="-20sp">
+        android:layout_marginBottom="-30sp">
 
         <ImageView
             android:layout_weight="2"
@@ -54,12 +81,12 @@
                 android:layout_height="32dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:background="@drawable/roundborders"
+                android:background="@drawable/newshape"
                 android:fontFamily="@font/comfortaa"
                 android:gravity="center"
                 android:hint="Name"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white" />
+                android:textColorHint="@color/black"
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
@@ -82,12 +109,12 @@
                 android:layout_height="32dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:background="@drawable/roundborders"
+                android:background="@drawable/newshape"
                 android:gravity="center"
-                android:textColorHint="@color/white"
+                android:textColorHint="@color/black"
                 android:hint="Age"
                 android:inputType="number"
-                android:textColor="@color/white" />
+                android:textColor="@color/black" />
         </LinearLayout>
 
     </LinearLayout>
@@ -109,13 +136,13 @@
         android:layout_height="32dp"
         android:layout_gravity="center"
         android:layout_marginBottom="20sp"
-        android:background="@drawable/roundborders"
+        android:background="@drawable/newshape"
         android:fontFamily="@font/comfortaa"
         android:gravity="center"
         android:hint="Phone No."
         android:inputType="phone"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColor="@color/black"
+        android:textColorHint="@color/black" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -124,21 +151,22 @@
         android:textColor="#03A9F4"
         android:layout_gravity="center"
         android:gravity="center"/>
-    <EditText
-        android:id="@+id/Bio"
-        android:layout_width="match_parent"
-        android:layout_height="166dp"
-        android:layout_marginBottom="20sp"
-        android:background="@drawable/borders"
-        android:textColor="@color/white"
-        android:hint="Bio"
-        android:textColorHint="@color/white"
-        android:inputType="textLongMessage"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:textSize="15dp"
-        />
-    <TextView
+        <EditText
+            android:id="@+id/Bio"
+            android:layout_width="match_parent"
+            android:layout_height="166dp"
+            android:layout_marginBottom="20sp"
+            android:background="@drawable/newshape"
+            android:textColor="@color/black"
+            android:hint="Bio"
+            android:textColorHint="@color/black"
+            android:inputType="textMultiLine"
+            android:gravity="center"
+            android:padding="8dp"
+            android:layout_gravity="center"
+            android:textSize="15dp" />
+
+        <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Events Completed:"
@@ -182,3 +210,5 @@
 
 </LinearLayout>
 
+</FrameLayout>
+    </ScrollView>
