@@ -118,6 +118,10 @@ public class AccountProfile extends AppCompatActivity {
                         bio = map.get("bio").toString();
                         mBio.setText(bio);
                     }
+                    if(map.get("age")!=null) {
+                        age = map.get("age").toString();
+                        mAge.setText(age);
+                    }
                     if(map.get("status")!=null) {
                         userStatus = map.get("status").toString();
                     }
