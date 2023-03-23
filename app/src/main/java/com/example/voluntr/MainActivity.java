@@ -22,6 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -159,11 +161,18 @@ public class MainActivity extends AppCompatActivity {
                 String currentUId = mAuth.getCurrentUser().getUid();
                 if (snapshot.exists() && !snapshot.child("connections").child("No").hasChild(currentUId) && !snapshot.child("connections").child("Yes").hasChild(currentUId) && snapshot.child("status").getValue().toString().equals(notuserStatus)) {
                     String profileImageUrl = "default";
-                    if (!snapshot.child("profileImageUrl").getValue().equals("default")) {
+                    if (!snapshot.child("profileImageUrl").getValue().equals("default") && !snapshot.child("profileImageUrl").getValue().equals(null)) {
                         profileImageUrl = snapshot.child("profileImageUrl").getValue().toString();
-
                     }
-                    orgcards item = new orgcards(snapshot.getKey(), snapshot.child("name").getValue().toString(), profileImageUrl, snapshot.child("age").getValue().toString());
+                    String name = "N/A";
+                    if (snapshot.child("name").exists() && snapshot.child("name").getValue() != null) {
+                        name = snapshot.child("name").getValue().toString();
+                    }
+                    String age = "N/A";
+                    if (snapshot.child("age").exists() && snapshot.child("age").getValue() != null) {
+                        age = snapshot.child("age").getValue().toString();
+                    }
+                    orgcards item = new orgcards(snapshot.getKey(), name, profileImageUrl, age);
                     rowItems.add(item);
                     arrayAdapter.notifyDataSetChanged();
                 }
