@@ -36,7 +36,6 @@ public class arrayAdapter extends ArrayAdapter<orgcards> {
                 Glide.with(convertView.getContext()).load(R.drawable.logofinal).into(image);
                 break;
             default:
-                Glide.clear(image);
                 Glide.with(convertView.getContext()).load(card_item.getProfileImageUrl()).into(image);
                 break;
         }
