@@ -4,14 +4,11 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
-import android.app.Activity;
-import android.app.Instrumentation;
-import android.app.appsearch.StorageInfo;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -40,8 +37,11 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class AccountProfile extends AppCompatActivity {
     private EditText mName3,mPhone,mAge,mBio;
@@ -50,27 +50,42 @@ public class AccountProfile extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference mVolDb;
     private String userId, name, phone, age, bio, userStatus;
+    private FirebaseAuth.AuthStateListener firebaseAuthListener;
 
     private Uri resultUri;
     private String profileImageUrl;
     private ActivityResultLauncher<String> mTakePhotoLauncher;
+    private RecyclerView recyclerView;
+    private IconAdapter iconAdapter;
+    private List<String> iconUrls;
+    private StorageReference storageReference;
+    private RecyclerView.LayoutManager EventLayoutManager;
+
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profileacticity);
         mName3 = (EditText) findViewById(R.id.name3);
+        recyclerView = (RecyclerView) findViewById(R.id.eventrecycle);
+        recyclerView.setNestedScrollingEnabled(false);
+        recyclerView.setHasFixedSize(true);
+        EventLayoutManager=new LinearLayoutManager(AccountProfile.this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(EventLayoutManager);
+        iconAdapter=new IconAdapter(AccountProfile.this,getDataEvents());
+        recyclerView.setAdapter(iconAdapter);
         mPhone = (EditText) findViewById(R.id.Phone);
         mAge = (EditText) findViewById(R.id.age);
         mBio = (EditText) findViewById(R.id.Bio);
         mProfilePic = (ImageView) findViewById(R.id.pfp);
         mConfirm = (Button) findViewById(R.id.confirm_button);
-
         mAuth=FirebaseAuth.getInstance();
         userId=mAuth.getCurrentUser().getUid();
         mVolDb = FirebaseDatabase.getInstance("https://voluntr-f211c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Users").child(userId);
+        getUserEventIDs();
         mTakePhotoLauncher = registerForActivityResult(new ActivityResultContracts.GetContent(),
                 new ActivityResultCallback<Uri>() {
                     @Override
@@ -91,9 +106,61 @@ public class AccountProfile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 saveUserInfo();
+                Intent intent = new Intent(AccountProfile.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+
+        });
+    }
+
+    private void getUserEventIDs() {
+        DatabaseReference chatdb = FirebaseDatabase.getInstance("https://voluntr-f211c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Users").child(userId).child("connections").child("Yes");
+        chatdb.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    for(DataSnapshot chat: snapshot.getChildren()){
+                        GetEventInfo(chat.getKey());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
     }
+
+    private void GetEventInfo(String key) {
+        DatabaseReference volndb = FirebaseDatabase.getInstance("https://voluntr-f211c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Users").child(key);
+        volndb.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    String profileImageUrl ="default";
+                    if (snapshot.child("profileImageUrl").getValue()!=null) {
+                        profileImageUrl = snapshot.child("profileImageUrl").getValue().toString();
+                    }
+
+                    resultEvents.add(profileImageUrl);
+                    iconAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private ArrayList<String> resultEvents= new ArrayList<String>();
+    private List<String> getDataEvents() {
+        return resultEvents;
+    }
+
     private void getUserInfo(){
         mVolDb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

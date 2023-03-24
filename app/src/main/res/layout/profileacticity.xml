@@ -173,15 +173,12 @@
         android:textColor="#03A9F4"
         android:layout_gravity="center"
         android:gravity="center"/>
-    <HorizontalScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/eventrecycle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></HorizontalScrollView>
+        android:layout_height="wrap_content"
+        android:scrollbars="horizontal"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:background="@drawable/borders"
-        android:text=""></EditText>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
