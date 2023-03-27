@@ -79,6 +79,28 @@ public class MainActivity extends BaseActivity {
                 String userId = object1.getUserId();
                 usersDb.child(userId).child("connections").child("Yes").child(currentUId).setValue(true);
                 usersDb.child(currentUId).child("connections").child("Yes").child(userId).setValue(true);
+                DatabaseReference eventsNumRef = usersDb.child(currentUId).child("eventsnum");
+                eventsNumRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        long eventsNum;
+
+                        if (dataSnapshot.exists()) {
+                            eventsNum = (long) dataSnapshot.getValue();
+                            eventsNum++;
+                        } else {
+                            eventsNum = 1;
+                        }
+
+                        eventsNumRef.setValue(eventsNum);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        // Handle possible errors
+                    }
+                });
+
                 usersDb.child(userId).child("connections").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -99,7 +121,7 @@ public class MainActivity extends BaseActivity {
                     }
                     String imageUrl = object1.getProfileImageUrl();
                 });
-                showRightSwipeImage();
+                showImage("voluntrlogofinal");
                 Toast.makeText(MainActivity.this,"You have been added to the organisations chat", Toast.LENGTH_LONG).show();
             }
 
@@ -155,13 +177,13 @@ public class MainActivity extends BaseActivity {
         });
 
     }
-    private void showRightSwipeImage() {
+    private void showImage(String imgpath) {
         final Dialog dialog = new Dialog(MainActivity.this);
         dialog.setContentView(R.layout.onrightswipe);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         ImageView rightSwipeImage = dialog.findViewById(R.id.right_swipe_image);
-        int drawableResourceId = getResources().getIdentifier("voluntrlogofinal", "drawable", getPackageName());
+        int drawableResourceId = getResources().getIdentifier(imgpath, "drawable", getPackageName());
         Glide.with(MainActivity.this)
                 .load(drawableResourceId)
                 .into(rightSwipeImage);

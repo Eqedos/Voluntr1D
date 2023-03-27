@@ -60,6 +60,7 @@ public class AccountProfile extends BaseActivity {
     private List<String> iconUrls;
     private StorageReference storageReference;
     private RecyclerView.LayoutManager EventLayoutManager;
+    private ImageView badgeImage;
 
 
 
@@ -84,7 +85,33 @@ public class AccountProfile extends BaseActivity {
         mConfirm = (Button) findViewById(R.id.confirm_button);
         mAuth=FirebaseAuth.getInstance();
         userId=mAuth.getCurrentUser().getUid();
+        badgeImage= (ImageView) findViewById(R.id.badge_image);
         mVolDb = FirebaseDatabase.getInstance("https://voluntr-f211c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Users").child(userId);
+        mVolDb.child("eventsnum").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                int eventsNum = dataSnapshot.getValue(Integer.class);
+
+                if (eventsNum > 1 && eventsNum <3) {
+                    badgeImage.setImageResource(R.drawable.silverbadgefinal); //
+                }
+                else if (eventsNum == 3) {
+                    badgeImage.setImageResource(R.drawable.goldbadgefinal);
+                }
+                else if (eventsNum > 3) {
+                    badgeImage.setImageResource(R.drawable.platbadgefinal);
+                }else {
+                    badgeImage.setImageResource(R.drawable.bronzebadgefinal); //
+                }
+            }}
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handle any errors here
+            }
+        });
+
         getUserEventIDs();
         mTakePhotoLauncher = registerForActivityResult(new ActivityResultContracts.GetContent(),
                 new ActivityResultCallback<Uri>() {

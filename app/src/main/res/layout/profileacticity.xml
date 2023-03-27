@@ -14,6 +14,7 @@
         android:alpha="0.8">
 
         <TextView
+            android:id="@+id/userProfileTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -25,8 +26,12 @@
             android:textStyle="bold"/>
 
     </RelativeLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -34,14 +39,13 @@
     android:background="@drawable/roundborders"
     tools:context=".AccountProfile"
     android:orientation="vertical"
-    android:padding="16dp"
-        android:layout_marginTop="100dp">
+    android:padding="16dp" android:layout_marginTop="50dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="300sp"
         android:orientation="horizontal"
         android:layout_gravity="center"
-        android:layout_marginBottom="-30sp">
+        android:layout_marginBottom="-20sp">
 
         <ImageView
             android:layout_weight="2"
@@ -53,13 +57,22 @@
             android:scaleType="fitCenter"
             android:layout_gravity="center" />
 
+
     </LinearLayout>
+            <ImageView
+                android:id="@+id/badge_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="-30dp"
+                android:src="@drawable/bronzebadgefinal"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:layout_marginTop="10dp">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -206,6 +219,6 @@
         android:layout_gravity="center"/></LinearLayout>
 
 </LinearLayout>
-
+    </FrameLayout>
 </FrameLayout>
     </ScrollView>
