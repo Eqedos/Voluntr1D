@@ -4,14 +4,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
-import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -21,8 +25,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -95,7 +97,9 @@ public class MainActivity extends AppCompatActivity {
                     public void onCancelled(@NonNull DatabaseError error) {
 
                     }
+                    String imageUrl = object1.getProfileImageUrl();
                 });
+                showRightSwipeImage();
                 Toast.makeText(MainActivity.this,"You have been added to the organisations chat", Toast.LENGTH_LONG).show();
             }
 
@@ -150,6 +154,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+    private void showRightSwipeImage() {
+        final Dialog dialog = new Dialog(MainActivity.this);
+        dialog.setContentView(R.layout.onrightswipe);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        ImageView rightSwipeImage = dialog.findViewById(R.id.right_swipe_image);
+        int drawableResourceId = getResources().getIdentifier("voluntrlogofinal", "drawable", getPackageName());
+        Glide.with(MainActivity.this)
+                .load(drawableResourceId)
+                .into(rightSwipeImage);
+
+        dialog.show();
+
+        // Set a timer to automatically dismiss the dialog after a certain duration (e.g., 2 seconds)
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                dialog.dismiss();
+            }
+        }, 1000);
     }
 
     public void getOppositeStatusUser(){
