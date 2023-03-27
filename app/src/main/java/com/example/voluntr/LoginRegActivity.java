@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ScrollView;
 
-public class LoginRegActivity extends AppCompatActivity {
+public class LoginRegActivity extends BaseActivity {
 
     private Button mLogin, mRegister;
     private HorizontalScrollView scrollView;

@@ -43,7 +43,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class AccountProfile extends AppCompatActivity {
+public class AccountProfile extends BaseActivity {
     private EditText mName3,mPhone,mAge,mBio;
     private Button mBack,mConfirm;
     private ImageView mProfilePic;

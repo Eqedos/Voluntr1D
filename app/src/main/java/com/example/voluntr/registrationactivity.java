@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class registrationactivity extends AppCompatActivity {
+public class registrationactivity extends BaseActivity {
     private Button mRegister;
     private EditText mEmail,mPassword,mName;
     private RadioGroup mRadioGroup;

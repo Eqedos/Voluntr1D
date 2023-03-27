@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Objects;
 
 
-public class ChatActivity extends AppCompatActivity {
+public class ChatActivity extends BaseActivity {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mChatAdapter;

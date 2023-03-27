@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ChatBoxActivity extends AppCompatActivity {
+public class ChatBoxActivity extends BaseActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mChatBoxAdapter;
     private RecyclerView.LayoutManager mChatBoxLayoutManager;

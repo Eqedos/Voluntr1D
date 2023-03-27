@@ -38,42 +38,52 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@color/black"
-        android:paddingVertical="8dp"
-        android:layout_gravity="bottom">
+        android:paddingVertical="0dp">
 
-        <androidx.appcompat.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/profile"
+            android:src="@drawable/profileiconfinal"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:onClick="goToProfile"
             android:text="Profile"
             android:fontFamily="@font/comfortaa"
             android:textColor="#37B8D4"
-            android:background="@drawable/borders" />
+            android:background="@drawable/borders"
+            android:scaleType="centerInside"
+            android:padding="8dp" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/help"
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/home"
+            android:src="@drawable/homefinal"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:text="Home"
             android:textColor="#37B8D4"
             android:fontFamily="@font/comfortaa"
-            android:background="@drawable/borders"/>
+            android:background="@drawable/borders"
+            android:scaleType="centerInside"
+            android:padding="0dp" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/chats"
+            android:src="@drawable/organisation"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:text="Orgs"
             android:onClick="goToChat"
             android:fontFamily="@font/comfortaa"
             android:textColor="#37B8D4"
             android:background="@drawable/borders"
-            />
+            android:scaleType="centerInside"
+            android:padding="0dp" />
 
     </LinearLayout>
+
+
+
 
 </LinearLayout>
