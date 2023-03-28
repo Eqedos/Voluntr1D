@@ -23,21 +23,21 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
-                android:src="@drawable/volunteerman" />
+                android:src="@drawable/v1" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
-                android:src="@drawable/volunteerman" />
+                android:src="@drawable/v2" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
-                android:src="@drawable/volunteerman" />
+                android:src="@drawable/v3" />
 
         </LinearLayout>
 
@@ -57,9 +57,9 @@
         android:text="Swipe Your Way to a Better World."
         android:layout_marginTop="-10dp"
         android:textColor="#FFFFFF"
-        android:textSize="13sp"
+        android:textSize="14sp"
         android:layout_gravity="center"
-        android:fontFamily="@font/comfortaa"/>
+        android:fontFamily="@font/sourceserifpro"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/register"
@@ -71,8 +71,10 @@
         android:textAllCaps="false"
         android:layout_gravity="center"
         android:textColor="#FFFFFF"
-        android:fontFamily="@font/comfortaa"
+        android:textStyle="bold"
+        android:fontFamily="@font/sourceserifpro"
         android:visibility="visible"
+        android:layout_marginBottom="5dp"
         android:layout_marginTop="16dp"/>
 
     <LinearLayout
@@ -87,9 +89,9 @@
             android:layout_height="wrap_content"
             android:text="Already have an account?"
             android:textColor="#FFFFFF"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:layout_gravity="clip_vertical"
-            android:fontFamily="@font/comfortaa"/>
+            android:fontFamily="@font/sourceserifpro"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/login"
@@ -101,13 +103,13 @@
             android:fontFamily="@font/montsblack"
             android:text="Sign In"
             android:textAllCaps="false"
-            android:textColor="#37B8D4"
+            android:textColor="#C9F3F4"
             android:textSize="14sp" />
 
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:id="@+id/whyvoluntr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

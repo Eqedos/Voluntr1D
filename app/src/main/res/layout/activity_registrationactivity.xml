@@ -16,9 +16,10 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:text="Registration"
+            android:layout_marginTop="20dp"
             android:textColor="#1E1E1E"
             android:textSize="28sp"
-            android:fontFamily="@font/comfortaa"
+            android:fontFamily="@font/sourceserifpro"
             android:textColorHighlight="@color/yellow"
             android:textStyle="bold"/>
 
@@ -37,11 +38,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
         android:text="Name:"
+        android:textStyle="bold"
         android:layout_gravity="left"
-        android:fontFamily="@font/comfortaa"
+        android:fontFamily="@font/sourceserifpro"
         android:layout_marginLeft="35dp"
         android:layout_marginTop="10dp"
-        android:textColor="#ADD8E6"
+        android:textColor="@color/black"
         android:textSize="18dp"/>
     <EditText
         android:hint="Name"
@@ -53,7 +55,7 @@
         android:textSize="16sp"
         android:textColorHint="@android:color/black"
         android:inputType="textPersonName"
-        android:fontFamily="@font/comfortaa"
+        android:fontFamily="@font/sourceserifpro"
         android:background="@drawable/newshape"/>/>
 
     <TextView
@@ -61,11 +63,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
         android:text="Email:"
+        android:textStyle="bold"
         android:layout_gravity="left"
-        android:fontFamily="@font/comfortaa"
+        android:fontFamily="@font/sourceserifpro"
         android:layout_marginLeft="35dp"
         android:layout_marginTop="10dp"
-        android:textColor="#ADD8E6"
+        android:textColor="@color/black"
         android:textSize="18dp"/>
 
     <EditText
@@ -78,7 +81,7 @@
         android:textSize="16sp"
         android:textColorHint="@android:color/black"
         android:inputType="textEmailAddress"
-        android:fontFamily="@font/comfortaa"
+        android:fontFamily="@font/sourceserifpro"
         android:background="@drawable/newshape"/>
 
     <TextView
@@ -86,11 +89,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
         android:text="Password:"
+        android:textStyle="bold"
         android:layout_gravity="left"
-        android:fontFamily="@font/comfortaa"
+        android:fontFamily="@font/sourceserifpro"
         android:layout_marginLeft="35dp"
         android:layout_marginTop="10dp"
-        android:textColor="#ADD8E6"
+        android:textColor="@color/black"
         android:textSize="18dp"/>
 
     <EditText
@@ -103,7 +107,7 @@
         android:textSize="16sp"
         android:textColorHint="@android:color/black"
         android:inputType="textPassword"
-        android:fontFamily="@font/comfortaa"
+        android:fontFamily="@font/sourceserifpro"
         android:background="@drawable/newshape"
         />
     <TextView
@@ -111,10 +115,11 @@
         android:layout_height="wrap_content"
         android:text="Are you interested in being an organizer or a volunteer?"
         android:layout_gravity="left"
-        android:fontFamily="@font/montsblack"
+        android:textStyle="bold"
+        android:fontFamily="@font/sourceserifpro"
         android:layout_marginLeft="35dp"
         android:layout_marginTop="10dp"
-        android:textColor="#ADD8E6"
+        android:textColor="@color/black"
         android:textSize="18dp"/>
     <RadioGroup
         android:layout_width="match_parent"
@@ -126,15 +131,15 @@
             android:layout_height="wrap_content"
             android:text="Volunteer"
             android:textSize="18dp"
-            android:fontFamily="@font/comfortaa"
-            android:textColor="#ADD8E6"></RadioButton>
+            android:fontFamily="@font/sourceserifpro"
+            android:textColor="@color/black"></RadioButton>
     <RadioButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Organiser"
         android:textSize="18dp"
-        android:fontFamily="@font/comfortaa"
-        android:textColor="#ADD8E6"/></RadioGroup>
+        android:fontFamily="@font/sourceserifpro"
+        android:textColor="@color/black"/></RadioGroup>
     <androidx.appcompat.widget.AppCompatButton
         android:text="Register"
         android:id="@+id/register"
@@ -143,8 +148,9 @@
         android:layout_marginTop="40dp"
         android:padding="12dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/comfortaa"
-        android:textSize="16dp"
+        android:fontFamily="@font/sourceserifpro"
+        android:textStyle="bold"
+        android:textSize="20dp"
         android:textColor="@color/white"
         android:background="@drawable/rectangle"
         android:textAllCaps="false"/>

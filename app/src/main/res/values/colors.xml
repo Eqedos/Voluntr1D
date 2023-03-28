@@ -12,4 +12,6 @@
     <color name="yellow">#FFD56F</color>
     <color name="green">#939B62</color>
     <color name="light_gray">#BEBEBE</color>
+    <color name="blue">#1AA7EC</color>
+    <color name="blue1">#1E2F79</color>
 </resources>

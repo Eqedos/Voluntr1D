@@ -16,9 +16,10 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:text="Login"
+            android:layout_marginTop="20dp"
             android:textColor="#1E1E1E"
             android:textSize="28sp"
-            android:fontFamily="@font/comfortaa"
+            android:fontFamily="@font/sourceserifpro"
             android:textColorHighlight="@color/yellow"
             android:textStyle="bold"/>
 
@@ -39,10 +40,11 @@
             android:layout_marginBottom="2dp"
             android:text="Email:"
             android:layout_gravity="left"
-            android:fontFamily="@font/comfortaa"
+            android:fontFamily="@font/sourceserifpro"
+            android:textStyle="bold"
             android:layout_marginLeft="35dp"
             android:layout_marginTop="10dp"
-            android:textColor="#ADD8E6"
+            android:textColor="@color/black"
             android:textSize="18dp"/>
 
         <EditText
@@ -55,7 +57,7 @@
             android:textSize="16sp"
             android:textColorHint="@android:color/black"
             android:inputType="textEmailAddress"
-            android:fontFamily="@font/comfortaa"
+            android:fontFamily="@font/sourceserifpro"
             android:background="@drawable/newshape"/>
 
         <TextView
@@ -64,10 +66,11 @@
             android:layout_marginBottom="2dp"
             android:text="Password:"
             android:layout_gravity="left"
-            android:fontFamily="@font/comfortaa"
+            android:fontFamily="@font/sourceserifpro"
+            android:textStyle="bold"
             android:layout_marginLeft="35dp"
             android:layout_marginTop="10dp"
-            android:textColor="#ADD8E6"
+            android:textColor="@color/black"
             android:textSize="18dp"/>
 
         <EditText
@@ -80,7 +83,7 @@
             android:textSize="16sp"
             android:textColorHint="@android:color/black"
             android:inputType="textPassword"
-            android:fontFamily="@font/comfortaa"
+            android:fontFamily="@font/sourceserifpro"
             android:background="@drawable/newshape"
             />
 
@@ -93,8 +96,9 @@
             android:layout_marginTop="40dp"
             android:padding="12dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/comfortaa"
-            android:textSize="16dp"
+            android:fontFamily="@font/sourceserifpro"
+            android:textStyle="bold"
+            android:textSize="20dp"
             android:textColor="@color/white"
             android:background="@drawable/rectangle"
             android:textAllCaps="false"/>
