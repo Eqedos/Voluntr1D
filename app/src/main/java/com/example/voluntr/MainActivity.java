@@ -11,8 +11,11 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -140,6 +143,23 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onItemClicked(int itemPosition, Object dataObject) {
                 Toast.makeText(MainActivity.this,"click", Toast.LENGTH_SHORT).show();
+                orgcards object1 = (orgcards) dataObject;
+                String userId = object1.getUserId();
+                DatabaseReference bioRef = usersDb.child(userId).child("bio");
+                bioRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            String bio = dataSnapshot.getValue().toString();
+                            showBioDialog(bio);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        // Handle possible errors
+                    }
+                });
             }
         });
 
@@ -258,4 +278,23 @@ public class MainActivity extends BaseActivity {
         startActivity(intent);
         return;
     }
+    private void showBioDialog(String bio) {
+        final Dialog dialog = new Dialog(MainActivity.this);
+        dialog.setContentView(R.layout.bio_dialog);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        TextView bioTextView = dialog.findViewById(R.id.bio_text_view);
+        bioTextView.setText(bio);
+
+        Button closeButton = dialog.findViewById(R.id.close_button);
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+    }
+
 }
