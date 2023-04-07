@@ -3,6 +3,7 @@ package com.example.voluntr;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -10,10 +11,12 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +37,7 @@ import java.util.List;
 
 public class MainActivity extends BaseActivity {
 
+
     private orgcards cards_data[];
     private arrayAdapter arrayAdapter;
     private FirebaseAuth mAuth;
@@ -52,6 +56,7 @@ public class MainActivity extends BaseActivity {
         String currentUId=mAuth.getCurrentUser().getUid();
         checkUserPreferences(); //Checks if user is organiser/volunteer
         rowItems = new ArrayList<orgcards>();//s
+
 
         arrayAdapter = new arrayAdapter(this, R.layout.item, rowItems );
 
@@ -296,5 +301,6 @@ public class MainActivity extends BaseActivity {
 
         dialog.show();
     }
+
 
 }

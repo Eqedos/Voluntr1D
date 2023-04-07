@@ -14,4 +14,8 @@
     <color name="light_gray">#BEBEBE</color>
     <color name="blue">#1AA7EC</color>
     <color name="blue1">#1E2F79</color>
+    <color name="dotinactive">#9AA7B0</color>
+    <color name="dotactive">#005468</color>
+    <color name="teal">#6A747B</color>
+
 </resources>

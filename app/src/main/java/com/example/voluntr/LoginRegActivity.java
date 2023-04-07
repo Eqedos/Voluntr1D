@@ -1,14 +1,11 @@
 package com.example.voluntr;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
-import android.widget.ScrollView;
 
 public class LoginRegActivity extends BaseActivity {
 
@@ -17,7 +14,7 @@ public class LoginRegActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_reg);
+        setContentView(R.layout.extra_activity_login_reg); //TODO: update everything in xml and remove scrollview
 
         mLogin = (Button) findViewById(R.id.login);
         mRegister = (Button) findViewById(R.id.register);

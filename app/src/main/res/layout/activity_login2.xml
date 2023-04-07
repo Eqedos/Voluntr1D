@@ -8,7 +8,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ADD8E6"
+        android:background="#FF8C00"
         android:alpha="0.8">
 
         <TextView
@@ -30,6 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/cornerrounded"
+        android:backgroundTint="#FFF4EA"
         tools:context=".registrationactivity"
         android:orientation="vertical"
         android:layout_marginTop="100dp">
