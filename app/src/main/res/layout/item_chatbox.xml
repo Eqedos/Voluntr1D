@@ -5,14 +5,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20sp"
         android:id="@+id/container">
+
         <TextView
-            android:paddingBottom="20sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/message2"
+            android:layout_width="390dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/chatbg1"
+            android:fontFamily="@font/comfortaa"
+            android:layout_marginRight="50dp"
+            android:paddingBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:text="Text"
-            android:id="@+id/message2"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
 </LinearLayout>

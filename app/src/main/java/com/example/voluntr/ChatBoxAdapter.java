@@ -28,6 +28,7 @@ public class ChatBoxAdapter extends RecyclerView.Adapter<chatboxviewholder> {
         layoutsv.setLayoutParams(layp);
         chatboxviewholder rcv = new chatboxviewholder((layoutsv));
 
+
         return rcv;
     }
 
@@ -49,4 +50,5 @@ public class ChatBoxAdapter extends RecyclerView.Adapter<chatboxviewholder> {
     public int getItemCount() {
         return chatList.size();
     }
+
 }

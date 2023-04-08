@@ -24,14 +24,21 @@
     <EditText
         android:layout_weight="0.7"
         android:layout_width="0dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
         android:layout_height="wrap_content"
         android:hint="Type Message:"
+        android:background="@drawable/round"
         android:id="@+id/message"/>
     <Button
         android:layout_weight="0.2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
         android:text="Send"
+        android:backgroundTint="@color/lightpink"
+
+        android:textColor="@color/black"
         android:id="@+id/send"/>
     </LinearLayout>
 

@@ -13,6 +13,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/recycle"
         android:scrollbars="vertical"></androidx.recyclerview.widget.RecyclerView>
+
     </androidx.core.widget.NestedScrollView>
+
+
 
 </LinearLayout>

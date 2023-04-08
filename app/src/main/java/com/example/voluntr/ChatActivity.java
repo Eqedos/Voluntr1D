@@ -2,9 +2,12 @@ package com.example.voluntr;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,6 +28,7 @@ public class ChatActivity extends BaseActivity {
     private RecyclerView.Adapter mChatAdapter;
     private RecyclerView.LayoutManager mChatLayoutManager;
     private String currentUserID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +42,10 @@ public class ChatActivity extends BaseActivity {
         mChatAdapter = new ChatAdapter(getDataSetChats(), ChatActivity.this);
         mRecyclerView.setAdapter(mChatAdapter);
         getuserchatId();
+
+
+
+
 
     }
 
@@ -93,4 +101,5 @@ public class ChatActivity extends BaseActivity {
     private List<DetailsOfOrg> getDataSetChats() {
         return resultsChat;
     }
+
 }

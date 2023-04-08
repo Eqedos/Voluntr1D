@@ -9,7 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="orange_1">#FF7B54</color>
     <color name="orange_2">#FFB26B</color>
-    <color name="yellow">#FFD56F</color>
     <color name="green">#939B62</color>
     <color name="light_gray">#BEBEBE</color>
     <color name="blue">#1AA7EC</color>
@@ -18,5 +17,10 @@
     <color name="dotactive">#005468</color>
     <color name="teal">#6A747B</color>
     <color name="teal1">#005468</color>
+    <color name="lightblue">#A8D6CC</color>
+    <color name="darkgreen">#005468</color>
+    <color name="lightpink">#F7C7B0</color>
+    <color name="lightyellow">#FFE2B4</color>
+    <color name="yellow">#FEB238</color>
 
 </resources>

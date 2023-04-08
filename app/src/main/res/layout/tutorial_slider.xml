@@ -21,9 +21,10 @@
         android:layout_marginTop="50dp"
         android:fontFamily="@font/comfortaa"
         android:text="@string/feature1"
+        android:layout_gravity="center"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="25dp"
+        android:textSize="23dp"
         android:textStyle="bold"/>
 
     <TextView

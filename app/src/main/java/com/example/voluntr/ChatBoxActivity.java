@@ -3,6 +3,8 @@ package com.example.voluntr;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,6 +37,7 @@ public class ChatBoxActivity extends BaseActivity {
     private Button mSendButton;
     private String currentUserID,chatId,chatboxId,nameOfUser="default";
 
+
     DatabaseReference mDbUser,mDbUserChat,mDbCurrentUserName;
 
     @Override
@@ -56,6 +59,11 @@ public class ChatBoxActivity extends BaseActivity {
         mRecyclerView.setAdapter(mChatBoxAdapter);
         mSendEditText = findViewById(R.id.message);
         mSendButton = findViewById(R.id.send);
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(mRecyclerView.getContext(), DividerItemDecoration.VERTICAL));
+
+
+
+
         mDbCurrentUserName.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -165,4 +173,5 @@ public class ChatBoxActivity extends BaseActivity {
     private List<ChatBoxObject> getDataSetChatBox() {
         return resultsChatBox;
     }
+
 }

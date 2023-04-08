@@ -1,39 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <!-- Black background with "Registration" text on top -->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FF8C00"
-        android:alpha="0.8">
 
-        <TextView
+
+    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
             android:text="Login"
-            android:layout_marginTop="20dp"
             android:textColor="#1E1E1E"
             android:textSize="28sp"
-            android:fontFamily="@font/sourceserifpro"
-            android:textColorHighlight="@color/yellow"
+            android:fontFamily="@font/comfortaa"
             android:textStyle="bold"/>
 
-    </RelativeLayout>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/cornerrounded"
-        android:backgroundTint="#FFF4EA"
+        android:backgroundTint="@color/white"
         tools:context=".registrationactivity"
         android:orientation="vertical"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="10dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -41,7 +37,7 @@
             android:layout_marginBottom="2dp"
             android:text="Email:"
             android:layout_gravity="left"
-            android:fontFamily="@font/sourceserifpro"
+            android:fontFamily="@font/comfortaa"
             android:textStyle="bold"
             android:layout_marginLeft="35dp"
             android:layout_marginTop="10dp"
@@ -58,8 +54,8 @@
             android:textSize="16sp"
             android:textColorHint="@android:color/black"
             android:inputType="textEmailAddress"
-            android:fontFamily="@font/sourceserifpro"
-            android:background="@drawable/newshape"/>
+            android:fontFamily="@font/comfortaa"
+            android:background="@drawable/newshape1"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -67,7 +63,7 @@
             android:layout_marginBottom="2dp"
             android:text="Password:"
             android:layout_gravity="left"
-            android:fontFamily="@font/sourceserifpro"
+            android:fontFamily="@font/comfortaa"
             android:textStyle="bold"
             android:layout_marginLeft="35dp"
             android:layout_marginTop="10dp"
@@ -84,8 +80,8 @@
             android:textSize="16sp"
             android:textColorHint="@android:color/black"
             android:inputType="textPassword"
-            android:fontFamily="@font/sourceserifpro"
-            android:background="@drawable/newshape"
+            android:fontFamily="@font/comfortaa"
+            android:background="@drawable/newshape1"
             />
 
 
@@ -97,14 +93,32 @@
             android:layout_marginTop="40dp"
             android:padding="12dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/sourceserifpro"
+            android:fontFamily="@font/comfortaa"
             android:textStyle="bold"
             android:textSize="20dp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:background="@drawable/rectangle"
             android:textAllCaps="false"/>
+        <ImageView
+            android:layout_marginTop="40dp"
+            android:layout_width="500dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:src="@drawable/login"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/quote1"
+            android:textAlignment="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/comfortaa"
+            />
 
 
     </LinearLayout>
-</FrameLayout>
+</LinearLayout>
 

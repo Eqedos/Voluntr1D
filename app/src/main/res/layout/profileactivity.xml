@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent">
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="100dp">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#8ED1FC"
+        android:layout_height="100dp"
+        android:background="@color/lightblue"
         android:alpha="0.8">
 
         <TextView
@@ -18,8 +18,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="User Profile"
-            android:textColor="#1E1E1E"
+            android:text="Profile"
+            android:textColor="@color/darkgreen"
             android:textSize="28sp"
             android:fontFamily="@font/comfortaa"
             android:textColorHighlight="@color/yellow"
@@ -31,194 +31,234 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/roundborders"
-    tools:context=".AccountProfile"
-    android:orientation="vertical"
-    android:padding="16dp" android:layout_marginTop="50dp">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="300sp"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:layout_marginBottom="-20sp">
-
-        <ImageView
-            android:layout_weight="2"
-            android:layout_width="0dp"
-            android:layout_height="200sp"
-            android:id="@+id/pfp"
-            android:src="@mipmap/ic_launcher"
-            android:layout_marginBottom="20sp"
-            android:scaleType="fitCenter"
-            android:layout_gravity="center" />
-
-
-    </LinearLayout>
-            <ImageView
-                android:id="@+id/badge_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="-30dp"
-                android:src="@drawable/badge1"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginTop="10dp">
-
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Name"
-                android:layout_gravity="center"
-                android:textColor="#03A9F4"
-                android:fontFamily="@font/comfortaa" />
-
-            <EditText
-                android:id="@+id/name3"
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/newshape"
-                android:fontFamily="@font/comfortaa"
-                android:gravity="center"
-                android:hint="Name"
-                android:textColorHint="@color/black"
-                android:textColor="@color/black" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Age"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:textColor="#03A9F4" />
-
-            <EditText
-                android:id="@+id/age"
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/newshape"
-                android:gravity="center"
-                android:textColorHint="@color/black"
-                android:hint="Age"
-                android:inputType="number"
-                android:textColor="@color/black" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Phone No."
-        android:fontFamily="@font/comfortaa"
-        android:textColor="#03A9F4"
-        android:layout_gravity="center"/>
-
-    <EditText
-        android:id="@+id/Phone"
-        android:layout_width="307dp"
-        android:layout_height="32dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="20sp"
-        android:background="@drawable/newshape"
-        android:fontFamily="@font/comfortaa"
-        android:gravity="center"
-        android:hint="Phone No."
-        android:inputType="phone"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bio"
-        android:textColor="#03A9F4"
-        android:layout_gravity="center"
-        android:gravity="center"/>
-        <EditText
-            android:id="@+id/Bio"
             android:layout_width="match_parent"
-            android:layout_height="166dp"
-            android:layout_marginBottom="20sp"
-            android:background="@drawable/newshape"
-            android:textColor="@color/black"
-            android:hint="Bio"
-            android:textColorHint="@color/black"
-            android:inputType="textMultiLine"
-            android:gravity="center"
-            android:padding="8dp"
-            android:layout_gravity="center"
-            android:textSize="15dp" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/roundborders"
+            android:orientation="vertical"
+            android:padding="16dp"
+            tools:context=".AccountProfile">
 
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Events Completed:"
-        android:textColor="#03A9F4"
-        android:layout_gravity="center"
-        android:gravity="center"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/eventrecycle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scrollbars="horizontal"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150sp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:layout_marginTop="10sp">
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/confirm_button"
-        android:text="confirm"
-        android:background="@drawable/borders"
-        android:textColor="#FFFFFF"
-        android:layout_gravity="left|center"/>
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/signmeout"
-        android:onClick="logoutUser"
-        android:text="Sign Out"
-        android:background="@drawable/borders"
-        android:textColor="#FFFFFF"
-        android:layout_gravity="center"/></LinearLayout>
+                <ImageView
+                    android:id="@+id/pfp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="120dp"
+                    android:layout_weight="2"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/profile" />
 
-</LinearLayout>
+                <ImageView
+                    android:id="@+id/badge_image"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@+id/pfp"
+                    android:layout_alignEnd="@+id/pfp"
+                    android:layout_alignBottom="@+id/pfp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="-30dp"
+                    android:layout_marginTop="-51dp"
+                    android:layout_marginEnd="-70dp"
+                    android:layout_marginBottom="-48dp"
+                    android:layout_toEndOf="@+id/pfp"
+                    android:src="@drawable/badge1" />
+
+
+            </RelativeLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="left"
+                        android:fontFamily="@font/comfortaa"
+                        android:text="Name"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black" />
+
+                    <EditText
+                        android:id="@+id/name3"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/newshape1"
+                        android:fontFamily="@font/comfortaa"
+                        android:gravity="left"
+                        android:hint="  Name"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="20dp"
+                        android:gravity="center"
+                        android:text="Age"
+                        android:fontFamily="@font/comfortaa"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"/>
+
+                    <EditText
+                        android:id="@+id/age"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/newshape1"
+                        android:fontFamily="@font/comfortaa"
+                        android:gravity="left"
+                        android:hint="  Age"
+                        android:inputType="number"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/comfortaa"
+                android:text="Phone No."
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:id="@+id/Phone"
+                android:layout_width="350dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+
+                android:background="@drawable/newshape1"
+                android:fontFamily="@font/comfortaa"
+                android:gravity="left"
+                android:hint="  Phone No."
+                android:inputType="phone"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+               android:textSize="20dp"
+                android:fontFamily="@font/comfortaa"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:text="Bio"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/Bio"
+                android:layout_width="match_parent"
+                android:layout_height="69dp"
+                android:layout_marginBottom="10sp"
+                android:background="@drawable/newshape1"
+                android:gravity="top"
+                android:hint="Swipe your way to a better world!"
+                android:inputType="textMultiLine"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:fontFamily="@font/comfortaa"
+                android:textSize="19dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Events Completed:"
+                android:fontFamily="@font/comfortaa"
+                android:textStyle="bold"
+                android:textColor="@color/black" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/eventrecycle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scrollbars="horizontal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10sp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/confirm_button"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_gravity="left|center"
+                    android:layout_marginBottom="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round"
+                    android:fontFamily="@font/comfortaa"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"
+                    android:textSize="15dp"
+                    android:text="Confirm"
+                    android:textColor="@color/darkgreen" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/signmeout"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round"
+                    android:fontFamily="@font/comfortaa"
+                    android:textStyle="bold"
+                    android:onClick="logoutUser"
+                    android:textAllCaps="false"
+                    android:text="Sign Out"
+                    android:textSize="15dp"
+                    android:textColor="@color/darkgreen" />
+            </LinearLayout>
+
+        </LinearLayout>
     </FrameLayout>
 </FrameLayout>
     </ScrollView>
