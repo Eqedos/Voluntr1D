@@ -80,4 +80,7 @@ public class ViewPagerActivity extends AppCompatActivity {
         return mSlideViewPager.getCurrentItem()+i;
     }
 
+
+
 }
+

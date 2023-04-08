@@ -6,17 +6,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".LoginRegActivity">
+    >
     <ImageView
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_gravity="center"
         android:src="@drawable/image"
-        />
-
+        android:layout_marginTop="-30dp"
+        android:layout_marginBottom="-50dp"/>
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="400dp"
         android:adjustViewBounds="true"
         android:scaleType="centerInside"
         android:src="@drawable/volunteerhome" />
@@ -24,14 +24,16 @@
 
 
     <TextView
+        android:id="@+id/txtview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Swipe Your Way to a Better World."
+        android:text="Swipe Your Way to a Better World!"
+        android:textStyle="bold"
         android:layout_marginTop="-10dp"
         android:textColor="@color/black"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:layout_gravity="center"
-        android:fontFamily="@font/sourceserifpro"/>
+        android:fontFamily="@font/comfortaa"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/register"
@@ -39,10 +41,10 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rectangle"
         android:text="Make a Difference."
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textAllCaps="false"
         android:layout_gravity="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#00151A"
         android:textStyle="bold"
         android:fontFamily="@font/comfortaa"
         android:visibility="visible"
@@ -66,19 +68,19 @@
             android:textColor="@color/black"
             android:textSize="14sp"
             android:layout_gravity="clip_vertical"
-            android:fontFamily="@font/sourceserifpro"/>
+            android:fontFamily="@font/comfortaa"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/login"
             android:layout_width="69dp"
             android:layout_height="match_parent"
             android:layout_gravity="top"
-            android:layout_marginLeft="0dp"
-            android:background="@color/black"
+            android:layout_marginLeft="2dp"
+            android:background="#00000000"
             android:fontFamily="@font/montsblack"
             android:text="Sign In"
             android:textAllCaps="false"
-            android:textColor="#C9F3F4"
+            android:textColor="@color/teal1"
             android:textSize="14sp" />
 
     </LinearLayout>
@@ -90,11 +92,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top|center"
         android:layout_marginLeft="0dp"
-        android:background="@color/black"
+       android:background="#00000000"
         android:fontFamily="@font/lobster"
         android:text="Why Voluntr?"
         android:textAllCaps="false"
-        android:textColor="#80E5E5E5"
+        android:textColor="@color/teal"
         android:textSize="14sp"
         />
+
 </LinearLayout>
+

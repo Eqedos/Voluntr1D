@@ -21,6 +21,9 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
+        <activity
+            android:name=".LoginRegActivity"
+            android:exported="true"/>
 
         <activity
             android:name=".ChatBoxActivity"
@@ -30,19 +33,19 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".LoginRegActivity"/>
         <activity
             android:name=".registrationactivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".LoginRegActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".ChatActivity"
             android:exported="false" />
-        <activity
-            android:name=".LoginRegActivity"
-            android:exported="true"/>
+
 
 
     </application>

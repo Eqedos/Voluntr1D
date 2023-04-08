@@ -17,5 +17,6 @@
     <color name="dotinactive">#9AA7B0</color>
     <color name="dotactive">#005468</color>
     <color name="teal">#6A747B</color>
+    <color name="teal1">#005468</color>
 
 </resources>

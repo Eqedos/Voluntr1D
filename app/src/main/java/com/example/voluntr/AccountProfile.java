@@ -4,7 +4,6 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -41,7 +40,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 public class AccountProfile extends BaseActivity {
     private EditText mName3,mPhone,mAge,mBio;
@@ -69,7 +67,7 @@ public class AccountProfile extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.profileacticity);
+        setContentView(R.layout.profileactivity);
         mName3 = (EditText) findViewById(R.id.name3);
         recyclerView = (RecyclerView) findViewById(R.id.eventrecycle);
         recyclerView.setNestedScrollingEnabled(false);
