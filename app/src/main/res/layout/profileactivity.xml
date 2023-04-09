@@ -49,26 +49,26 @@
 
                 <ImageView
                     android:id="@+id/pfp"
-                    android:layout_width="103dp"
-                    android:layout_height="103dp"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="140dp"
+                    android:layout_marginLeft="120dp"
                     android:layout_weight="2"
                     android:scaleType="fitCenter"
                     android:src="@drawable/profileimg" />
 
                 <ImageView
                     android:id="@+id/badge_image"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:layout_below="@+id/pfp"
                     android:layout_alignEnd="@+id/pfp"
                     android:layout_alignBottom="@+id/pfp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginStart="-30dp"
+                    android:layout_marginStart="-50dp"
                     android:layout_marginTop="-51dp"
                     android:layout_marginEnd="-70dp"
-                    android:layout_marginBottom="-48dp"
+                    android:layout_marginBottom="-30dp"
                     android:layout_toEndOf="@+id/pfp"
                     android:src="@drawable/badge1" />
 
@@ -164,7 +164,7 @@
 
             <EditText
                 android:id="@+id/Phone"
-                android:layout_width="390dp"
+                android:layout_width="350dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center"
 
@@ -190,7 +190,7 @@
             <EditText
                 android:id="@+id/Bio"
                 android:layout_width="match_parent"
-                android:layout_height="69dp"
+                android:layout_height="140dp"
                 android:layout_marginBottom="10sp"
                 android:background="@drawable/newshape1"
                 android:gravity="top"
