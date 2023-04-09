@@ -12,23 +12,24 @@
         android:layout_height="100dp"
         android:background="@color/lightblue"
         android:alpha="0.8">
-
-        <TextView
+        <ImageView
             android:id="@+id/userProfileTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="Profile"
-            android:textColor="@color/darkgreen"
-            android:textSize="28sp"
-            android:fontFamily="@font/comfortaa"
-            android:textColorHighlight="@color/yellow"
-            android:textStyle="bold"/>
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginLeft="170dp"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/profileiconnew"/>
+
+
 
     </RelativeLayout>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:backgroundTint="@color/lightblue"
         android:layout_centerHorizontal="true">
 
         <LinearLayout
