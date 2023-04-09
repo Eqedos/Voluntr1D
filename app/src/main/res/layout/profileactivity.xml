@@ -111,7 +111,8 @@
                         android:background="@drawable/newshape1"
                         android:fontFamily="@font/comfortaa"
                         android:gravity="left"
-                        android:hint="  Name"
+                        android:paddingLeft="10sp"
+                        android:hint="Name"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black" />
                 </LinearLayout>
@@ -143,7 +144,8 @@
                         android:background="@drawable/newshape1"
                         android:fontFamily="@font/comfortaa"
                         android:gravity="left"
-                        android:hint="  Age"
+                        android:paddingLeft="10sp"
+                        android:hint="Age"
                         android:inputType="number"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black" />
@@ -172,7 +174,8 @@
                 android:background="@drawable/newshape1"
                 android:fontFamily="@font/comfortaa"
                 android:gravity="left"
-                android:hint="  Phone No."
+                android:paddingLeft="10sp"
+                android:hint="Phone No."
                 android:inputType="phone"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black" />
@@ -198,6 +201,7 @@
                 android:hint="Swipe your way to a better world!"
                 android:inputType="textMultiLine"
                 android:padding="8dp"
+                android:paddingLeft="10sp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:fontFamily="@font/comfortaa"
