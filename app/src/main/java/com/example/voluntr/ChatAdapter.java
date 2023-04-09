@@ -50,10 +50,10 @@ public class ChatAdapter extends RecyclerView.Adapter<chatviewholder> {
     @Override
     public void onBindViewHolder(@NonNull chatviewholder holder, int position) {
         if(holder.view_Type==TYPE_LIST){
-            holder.mChatId.setText(OrgList.get(position).getUserId());
-            holder.mChatName.setText(OrgList.get(position).getName());
-            if (!OrgList.get(position).getProfileImageUrl().equals("default")){
-                Glide.with(context).load(OrgList.get(position).getProfileImageUrl()).into(holder.mOrgPic);
+            holder.mChatId.setText(OrgList.get(position-1).getUserId());
+            holder.mChatName.setText(OrgList.get(position-1).getName());
+            if (!OrgList.get(position-1).getProfileImageUrl().equals("default")){
+                Glide.with(context).load(OrgList.get(position-1).getProfileImageUrl()).into(holder.mOrgPic);
             }
         }
         else if (holder.view_Type==TYPE_HEAD) {
@@ -67,7 +67,7 @@ public class ChatAdapter extends RecyclerView.Adapter<chatviewholder> {
 
     @Override
     public int getItemCount() {
-        return OrgList.size();
+        return OrgList.size()+1;
     }
 
     @Override
