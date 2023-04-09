@@ -92,15 +92,15 @@ public class AccountProfile extends BaseActivity {
                 int eventsNum = dataSnapshot.getValue(Integer.class);
 
                 if (eventsNum > 1 && eventsNum <3) {
-                    badgeImage.setImageResource(R.drawable.silverbadgefinal); //
+                    badgeImage.setImageResource(R.drawable.badge1); //silver
                 }
                 else if (eventsNum == 3) {
-                    badgeImage.setImageResource(R.drawable.goldbadgefinal);
+                    badgeImage.setImageResource(R.drawable.badge2); //gold
                 }
                 else if (eventsNum > 3) {
-                    badgeImage.setImageResource(R.drawable.platbadgefinal);
+                    badgeImage.setImageResource(R.drawable.badge4); //platinum
                 }else {
-                    badgeImage.setImageResource(R.drawable.bronzebadgefinal); //
+                    badgeImage.setImageResource(R.drawable.badge3); //bronze
                 }
             }}
 

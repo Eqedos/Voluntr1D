@@ -18,6 +18,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/bio_text_view"
         android:layout_alignParentEnd="true"
+        android:backgroundTint="@color/lightpink"
+        android:fontFamily="@font/comfortaa"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textAllCaps="false"
         android:text="Close" />
 
 </RelativeLayout>

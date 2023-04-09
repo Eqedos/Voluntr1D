@@ -34,7 +34,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="60dp"
             android:background="@drawable/roundborders"
             android:orientation="vertical"
             android:padding="16dp"
@@ -49,13 +49,13 @@
 
                 <ImageView
                     android:id="@+id/pfp"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="103dp"
+                    android:layout_height="103dp"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="120dp"
+                    android:layout_marginLeft="140dp"
                     android:layout_weight="2"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/profile" />
+                    android:src="@drawable/profileimg" />
 
                 <ImageView
                     android:id="@+id/badge_image"
@@ -164,7 +164,7 @@
 
             <EditText
                 android:id="@+id/Phone"
-                android:layout_width="350dp"
+                android:layout_width="390dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center"
 
@@ -200,6 +200,7 @@
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:fontFamily="@font/comfortaa"
+                android:autoSizeTextType="uniform"
                 android:textSize="19dp" />
 
             <TextView
@@ -208,6 +209,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="Events Completed:"
+                android:textSize="18dp"
                 android:fontFamily="@font/comfortaa"
                 android:textStyle="bold"
                 android:textColor="@color/black" />
