@@ -6,6 +6,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/chatbg1"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="10dp"
+
         android:id="@+id/container">
 
         <TextView
@@ -13,11 +17,17 @@
             android:layout_width="390dp"
             android:layout_height="match_parent"
             android:background="@drawable/chatbg1"
+            android:backgroundTint="@color/lightblue"
             android:fontFamily="@font/comfortaa"
             android:layout_marginRight="50dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
             android:paddingBottom="20dp"
+            android:paddingLeft="18dp"
             android:layout_marginBottom="10dp"
+            android:textSize="18dp"
             android:text="Text"
+            android:textAlignment="viewStart"
             android:textStyle="bold" />
 
     </LinearLayout>

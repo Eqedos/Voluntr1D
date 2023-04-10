@@ -27,6 +27,7 @@
         android:layout_marginLeft="3dp"
         android:layout_marginRight="3dp"
         android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
         android:hint="Type Message:"
         android:background="@drawable/round"
         android:id="@+id/message"/>
@@ -37,7 +38,6 @@
         android:layout_marginRight="10dp"
         android:text="Send"
         android:backgroundTint="@color/lightpink"
-
         android:textColor="@color/black"
         android:id="@+id/send"/>
     </LinearLayout>

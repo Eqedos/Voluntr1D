@@ -4,9 +4,9 @@
     <solid android:color="@color/lightblue"/>
     <stroke android:color="@color/lightblue" android:width="2dp" android:shape="rectangle" />
     <corners
-        android:bottomLeftRadius="20dp"
-        android:bottomRightRadius="20dp"
-        android:topLeftRadius="20dp"
+        android:bottomLeftRadius="30dp"
+
+        android:topLeftRadius="30dp"
         />
     <size android:width="50dp"
         android:height="30dp"/>
