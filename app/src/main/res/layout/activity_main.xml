@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@drawable/borders"
-        android:backgroundTint="@color/lightblue"
+        android:backgroundTint="@color/white"
         android:paddingVertical="0dp">
 
         <androidx.appcompat.widget.AppCompatImageButton
@@ -52,10 +52,8 @@
             android:text="Profile"
             android:fontFamily="@font/comfortaa"
             android:textColor="#37B8D4"
-            android:scaleX="1.6"
-            android:scaleY="1.6"
-            android:scaleType="centerInside"
-            android:padding="8dp" />
+            android:scaleType="fitCenter"
+            android:padding="3dp" />
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/home"
@@ -67,9 +65,7 @@
             android:text="Home"
             android:textColor="#37B8D4"
             android:fontFamily="@font/comfortaa"
-            android:scaleX="1.5"
-            android:scaleY="1.5"
-            android:scaleType="centerInside"
+            android:scaleType="fitCenter"
             android:padding="0dp" />
 
         <androidx.appcompat.widget.AppCompatImageButton
@@ -83,9 +79,7 @@
             android:onClick="goToChat"
             android:fontFamily="@font/comfortaa"
             android:textColor="#37B8D4"
-            android:scaleX="1.4"
-            android:scaleY="1.4"
-            android:scaleType="centerInside"
+            android:scaleType="fitCenter"
             android:padding="0dp" />
 
     </LinearLayout>
