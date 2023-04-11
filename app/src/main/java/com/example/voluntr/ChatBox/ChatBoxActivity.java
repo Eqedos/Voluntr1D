@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.voluntr.TutorialPage.Profile.AccountProfile;
+import com.example.voluntr.Profile.AccountProfile;
 import com.example.voluntr.BaseActivity;
 import com.example.voluntr.R;
 import com.google.firebase.auth.FirebaseAuth;
