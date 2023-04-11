@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -29,6 +30,9 @@ public class ViewPagerActivity extends AppCompatActivity {
         mDotLayout = (LinearLayout) findViewById(R.id.indicator_layout);
         viewPagerAdapter = new ViewPagerAdapter(this);
         mSlideViewPager.setAdapter(viewPagerAdapter);
+        mSlideViewPager.setPageTransformer(true, new TossAnimation());
+        ViewPagerCustomDuration vp = (ViewPagerCustomDuration) findViewById(R.id.slideViewPager);
+        vp.setScrollDurationFactor(3); // make the animation three times as slow
         skipbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,7 +46,6 @@ public class ViewPagerActivity extends AppCompatActivity {
         });
         setUpIndicator(0); //set first dot as active
         mSlideViewPager.addOnPageChangeListener(viewListener);
-
     }
 
     public void setUpIndicator(int position){ //adding dots to layout tutorial_slider
