@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.voluntr.Profile.AccountProfile;
+import com.example.voluntr.TutorialPage.Profile.AccountProfile;
 import com.example.voluntr.BaseActivity;
 import com.example.voluntr.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -43,6 +43,8 @@ public class ChatBoxActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //Instantiating and initializing objects and variables as well as database references
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_box);
         chatId=getIntent().getExtras().getString("chatId");
@@ -65,7 +67,7 @@ public class ChatBoxActivity extends BaseActivity {
 
 
 
-        mDbCurrentUserName.addListenerForSingleValueEvent(new ValueEventListener() {
+        mDbCurrentUserName.addListenerForSingleValueEvent(new ValueEventListener() { //Adding listener to getValue of user
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {

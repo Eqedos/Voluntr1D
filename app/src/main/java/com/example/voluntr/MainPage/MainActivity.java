@@ -20,7 +20,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.voluntr.BaseActivity;
 import com.example.voluntr.Chats.ChatActivity;
-import com.example.voluntr.Profile.AccountProfile;
+import com.example.voluntr.TutorialPage.Profile.AccountProfile;
 import com.example.voluntr.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

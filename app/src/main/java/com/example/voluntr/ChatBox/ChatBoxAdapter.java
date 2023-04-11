@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.voluntr.R;
 
 import java.util.List;
-
+//Adapter for chatbox
 public class ChatBoxAdapter extends RecyclerView.Adapter<ChatBoxViewHolder> {
     private List<ChatBoxObject> chatList;
     private Context context;
@@ -24,7 +24,7 @@ public class ChatBoxAdapter extends RecyclerView.Adapter<ChatBoxViewHolder> {
     }
     @NonNull
     @Override
-    public ChatBoxViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ChatBoxViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) { //Viewholder for chats
         View layoutsv = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_chatbox, null, false);
         RecyclerView.LayoutParams layp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutsv.setLayoutParams(layp);

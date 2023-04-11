@@ -47,7 +47,7 @@ public class ChatActivity extends BaseActivity {
 
     }
 
-    private void getuserchatId() {
+    private void getuserchatId() { //To get a users chatId
         DatabaseReference chatdb = FirebaseDatabase.getInstance("https://voluntr-f211c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Users").child(currentUserID).child("connections").child("Yes");
         chatdb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -66,7 +66,7 @@ public class ChatActivity extends BaseActivity {
         });
     }
 
-    private void GetChatInfo(String key) {
+    private void GetChatInfo(String key) { //To get information of the chat
         DatabaseReference volndb = FirebaseDatabase.getInstance("https://voluntr-f211c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Users").child(key);
         volndb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -95,9 +95,9 @@ public class ChatActivity extends BaseActivity {
         });
     }
 
-    private ArrayList<DetailsOfOrg> resultsChat= new ArrayList<DetailsOfOrg>();
+    private ArrayList<DetailsOfOrg> resultsChat= new ArrayList<DetailsOfOrg>(); //Arraylist for organisation details in chat
     private List<DetailsOfOrg> getDataSetChats() {
         return resultsChat;
-    }
+    } //Gets data of set chats
 
 }

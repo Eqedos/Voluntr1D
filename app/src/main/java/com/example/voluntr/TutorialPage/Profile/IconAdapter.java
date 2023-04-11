@@ -1,4 +1,4 @@
-package com.example.voluntr.Profile;
+package com.example.voluntr.TutorialPage.Profile;
 
 import android.content.Context;
 import android.view.LayoutInflater;

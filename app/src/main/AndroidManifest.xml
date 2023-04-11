@@ -29,7 +29,7 @@
             android:name=".ChatBox.ChatBoxActivity"
             android:exported="false" />
         <activity
-            android:name=".Profile.AccountProfile"
+            android:name=".TutorialPage.Profile.AccountProfile"
             android:exported="false" />
         <activity
             android:name=".LoginRegister.LoginActivity"
