@@ -1,7 +1,6 @@
-package com.example.voluntr;
+package com.example.voluntr.LoginRegister;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +11,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.voluntr.BaseActivity;
+import com.example.voluntr.MainPage.MainActivity;
+import com.example.voluntr.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -24,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class registrationactivity extends BaseActivity {
+public class RegistrationActivity extends BaseActivity {
     private Button mRegister;
     private EditText mEmail,mPassword,mName;
     private RadioGroup mRadioGroup;
@@ -43,7 +45,7 @@ public class registrationactivity extends BaseActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if (user != null) {
-                    Intent intent = new Intent(registrationactivity.this, MainActivity.class);
+                    Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                     return;
@@ -71,11 +73,11 @@ public class registrationactivity extends BaseActivity {
                 final String email = mEmail.getText().toString();
                 final String password = mPassword.getText().toString();
                 final String Name = mName.getText().toString();
-                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(registrationactivity.this, new OnCompleteListener<AuthResult>() {
+                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegistrationActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (!task.isSuccessful()) {
-                            Toast.makeText(registrationactivity.this, "Can't Sign Up", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegistrationActivity.this, "Can't Sign Up", Toast.LENGTH_SHORT).show();
                         } else {
                             String userId = mAuth.getCurrentUser().getUid();
                             DatabaseReference currentUserDb = FirebaseDatabase.getInstance("https://voluntr-f211c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Users").child(userId);
@@ -84,7 +86,7 @@ public class registrationactivity extends BaseActivity {
                             userInfo.put("status",radioButton.getText().toString());
                             userInfo.put("profileImageUrl", "default");
                             currentUserDb.updateChildren(userInfo);
-                            Toast.makeText(registrationactivity.this, "registered", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegistrationActivity.this, "registered", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

@@ -1,9 +1,7 @@
-package com.example.voluntr;
+package com.example.voluntr.ChatBox;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,6 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.voluntr.Profile.AccountProfile;
+import com.example.voluntr.BaseActivity;
+import com.example.voluntr.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -72,7 +73,7 @@ public class ChatBoxActivity extends BaseActivity {
                 }
                 else{
                     Toast.makeText(ChatBoxActivity.this, "Please make a profile",Toast.LENGTH_LONG);
-                    Intent intent = new Intent(ChatBoxActivity.this,AccountProfile.class);
+                    Intent intent = new Intent(ChatBoxActivity.this, AccountProfile.class);
                     startActivity(intent);
                     return;
                 }

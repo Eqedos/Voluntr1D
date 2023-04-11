@@ -1,4 +1,4 @@
-package com.example.voluntr;
+package com.example.voluntr.Chats;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,10 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.voluntr.R;
 
 import java.util.List;
 
-public class ChatAdapter extends RecyclerView.Adapter<chatviewholder> {
+public class ChatAdapter extends RecyclerView.Adapter<ChatViewHolder> {
     private static final int TYPE_HEAD=0;
     private static final int TYPE_LIST=1;
     private List<DetailsOfOrg> OrgList;
@@ -24,19 +25,19 @@ public class ChatAdapter extends RecyclerView.Adapter<chatviewholder> {
     }
     @NonNull
     @Override
-    public chatviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        chatviewholder rcv = null;
+    public ChatViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        ChatViewHolder rcv = null;
         if(viewType==TYPE_LIST) {
             View layoutsv = LayoutInflater.from(parent.getContext()).inflate(R.layout.chatitem, null, false);
             RecyclerView.LayoutParams layp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             layoutsv.setLayoutParams(layp);
-            rcv = new chatviewholder(layoutsv,viewType);
+            rcv = new ChatViewHolder(layoutsv,viewType);
         }
         else if(viewType==TYPE_HEAD){
             View layoutsv = LayoutInflater.from(parent.getContext()).inflate(R.layout.chatsheading, null, false);
             RecyclerView.LayoutParams layp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             layoutsv.setLayoutParams(layp);
-            rcv = new chatviewholder(layoutsv,viewType);
+            rcv = new ChatViewHolder(layoutsv,viewType);
 
         }
         else{
@@ -48,7 +49,7 @@ public class ChatAdapter extends RecyclerView.Adapter<chatviewholder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull chatviewholder holder, int position) {
+    public void onBindViewHolder(@NonNull ChatViewHolder holder, int position) {
         if(holder.view_Type==TYPE_LIST){
             holder.mChatId.setText(OrgList.get(position-1).getUserId());
             holder.mChatName.setText(OrgList.get(position-1).getName());

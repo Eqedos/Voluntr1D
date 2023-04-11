@@ -1,20 +1,19 @@
-package com.example.voluntr;
+package com.example.voluntr.Chats;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.voluntr.ChatBoxActivity;
+import com.example.voluntr.ChatBox.ChatBoxActivity;
 import com.example.voluntr.R;
 
-public class chatviewholder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class ChatViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     private static final int TYPE_HEAD=0;
     private static final int TYPE_LIST=1;
     int view_Type;
@@ -22,7 +21,7 @@ public class chatviewholder extends RecyclerView.ViewHolder implements View.OnCl
     public TextView mChatId, mChatName;
     public ImageView mOrgPic;
 
-    public chatviewholder(@NonNull View itemView,int viewType) {
+    public ChatViewHolder(@NonNull View itemView, int viewType) {
         super(itemView);
         itemView.setOnClickListener(this);
         if(viewType==TYPE_LIST){

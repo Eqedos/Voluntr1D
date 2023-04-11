@@ -1,10 +1,12 @@
-package com.example.voluntr;
+package com.example.voluntr.TutorialPage;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.animation.Interpolator;
 
 import androidx.viewpager.widget.ViewPager;
+
+import com.example.voluntr.TutorialPage.ScrollerCustomDuration;
 
 import java.lang.reflect.Field;
 

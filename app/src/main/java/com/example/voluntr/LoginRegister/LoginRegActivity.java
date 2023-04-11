@@ -1,10 +1,13 @@
-package com.example.voluntr;
+package com.example.voluntr.LoginRegister;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
+
+import com.example.voluntr.BaseActivity;
+import com.example.voluntr.R;
 
 public class LoginRegActivity extends BaseActivity {
 
@@ -41,7 +44,7 @@ public class LoginRegActivity extends BaseActivity {
         mRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(LoginRegActivity.this, registrationactivity.class);
+                Intent intent= new Intent(LoginRegActivity.this, RegistrationActivity.class);
                 startActivity(intent);
                 finish();
                 return;

@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Voluntr"
         tools:targetApi="31">
-        <activity android:name=".ViewPagerActivity"
+        <activity android:name=".TutorialPage.ViewPagerActivity"
             android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -22,28 +22,28 @@
         </intent-filter>
         </activity>
         <activity
-            android:name=".LoginRegActivity"
+            android:name=".LoginRegister.LoginRegActivity"
             android:exported="true"/>
 
         <activity
-            android:name=".ChatBoxActivity"
+            android:name=".ChatBox.ChatBoxActivity"
             android:exported="false" />
         <activity
-            android:name=".AccountProfile"
+            android:name=".Profile.AccountProfile"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".LoginRegister.LoginActivity"
             android:exported="false"
-            android:parentActivityName=".LoginRegActivity"/>
+            android:parentActivityName=".LoginRegister.LoginRegActivity"/>
         <activity
-            android:name=".registrationactivity"
+            android:name=".LoginRegister.RegistrationActivity"
             android:exported="false"
-            android:parentActivityName=".LoginRegActivity"/>
+            android:parentActivityName=".LoginRegister.LoginRegActivity"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".MainPage.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".ChatActivity"
+            android:name=".Chats.ChatActivity"
             android:exported="false" />
 
 

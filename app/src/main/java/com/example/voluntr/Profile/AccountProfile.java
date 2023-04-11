@@ -1,12 +1,4 @@
-package com.example.voluntr;
-
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+package com.example.voluntr.Profile;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,8 +12,19 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.example.voluntr.BaseActivity;
+import com.example.voluntr.LoginRegister.LoginRegActivity;
+import com.example.voluntr.MainPage.MainActivity;
+import com.example.voluntr.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -42,8 +45,8 @@ import java.util.List;
 import java.util.Map;
 
 public class AccountProfile extends BaseActivity {
-    private EditText mName3,mPhone,mAge,mBio;
-    private Button mBack,mConfirm;
+    private EditText mName3, mPhone, mAge, mBio;
+    private Button mBack, mConfirm;
     private ImageView mProfilePic;
     private FirebaseAuth mAuth;
     private DatabaseReference mVolDb;
@@ -59,9 +62,7 @@ public class AccountProfile extends BaseActivity {
     private StorageReference storageReference;
     private RecyclerView.LayoutManager EventLayoutManager;
     private ImageView badgeImage;
-
-
-
+    private final ArrayList<String> resultEvents = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,37 +73,36 @@ public class AccountProfile extends BaseActivity {
         recyclerView = (RecyclerView) findViewById(R.id.eventrecycle);
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setHasFixedSize(true);
-        EventLayoutManager=new LinearLayoutManager(AccountProfile.this, LinearLayoutManager.HORIZONTAL, false);
+        EventLayoutManager = new LinearLayoutManager(AccountProfile.this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(EventLayoutManager);
-        iconAdapter=new IconAdapter(AccountProfile.this,getDataEvents());
+        iconAdapter = new IconAdapter(AccountProfile.this, getDataEvents());
         recyclerView.setAdapter(iconAdapter);
         mPhone = (EditText) findViewById(R.id.Phone);
         mAge = (EditText) findViewById(R.id.age);
         mBio = (EditText) findViewById(R.id.Bio);
         mProfilePic = (ImageView) findViewById(R.id.pfp);
         mConfirm = (Button) findViewById(R.id.confirm_button);
-        mAuth=FirebaseAuth.getInstance();
-        userId=mAuth.getCurrentUser().getUid();
-        badgeImage= (ImageView) findViewById(R.id.badge_image);
+        mAuth = FirebaseAuth.getInstance();
+        userId = mAuth.getCurrentUser().getUid();
+        badgeImage = (ImageView) findViewById(R.id.badge_image);
         mVolDb = FirebaseDatabase.getInstance("https://voluntr-f211c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Users").child(userId);
         mVolDb.child("eventsnum").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()){
-                int eventsNum = dataSnapshot.getValue(Integer.class);
+                if (dataSnapshot.exists()) {
+                    int eventsNum = dataSnapshot.getValue(Integer.class);
 
-                if (eventsNum > 1 && eventsNum <3) {
-                    badgeImage.setImageResource(R.drawable.badge1); //silver
+                    if (eventsNum > 1 && eventsNum < 3) {
+                        badgeImage.setImageResource(R.drawable.badge1); //silver
+                    } else if (eventsNum == 3) {
+                        badgeImage.setImageResource(R.drawable.badge2); //gold
+                    } else if (eventsNum > 3) {
+                        badgeImage.setImageResource(R.drawable.badge4); //platinum
+                    } else {
+                        badgeImage.setImageResource(R.drawable.badge3); //bronze
+                    }
                 }
-                else if (eventsNum == 3) {
-                    badgeImage.setImageResource(R.drawable.badge2); //gold
-                }
-                else if (eventsNum > 3) {
-                    badgeImage.setImageResource(R.drawable.badge4); //platinum
-                }else {
-                    badgeImage.setImageResource(R.drawable.badge3); //bronze
-                }
-            }}
+            }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -131,7 +131,7 @@ public class AccountProfile extends BaseActivity {
             @Override
             public void onClick(View view) {
                 saveUserInfo();
-                Intent intent = new Intent(AccountProfile.this,MainActivity.class);
+                Intent intent = new Intent(AccountProfile.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -144,8 +144,8 @@ public class AccountProfile extends BaseActivity {
         chatdb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
-                    for(DataSnapshot chat: snapshot.getChildren()){
+                if (snapshot.exists()) {
+                    for (DataSnapshot chat : snapshot.getChildren()) {
                         GetEventInfo(chat.getKey());
                     }
                 }
@@ -163,9 +163,9 @@ public class AccountProfile extends BaseActivity {
         volndb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
-                    String profileImageUrl ="default";
-                    if (snapshot.child("profileImageUrl").getValue()!=null) {
+                if (snapshot.exists()) {
+                    String profileImageUrl = "default";
+                    if (snapshot.child("profileImageUrl").getValue() != null) {
                         profileImageUrl = snapshot.child("profileImageUrl").getValue().toString();
                     }
 
@@ -181,44 +181,44 @@ public class AccountProfile extends BaseActivity {
         });
     }
 
-    private ArrayList<String> resultEvents= new ArrayList<String>();
     private List<String> getDataEvents() {
         return resultEvents;
     }
 
-    private void getUserInfo(){
+    private void getUserInfo() {
         mVolDb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists() && snapshot.getChildrenCount()>0){
-                    Map<String,Object> map = (Map<String, Object>) snapshot.getValue();
-                    if(map.get("name")!=null) {
+                if (snapshot.exists() && snapshot.getChildrenCount() > 0) {
+                    Map<String, Object> map = (Map<String, Object>) snapshot.getValue();
+                    if (map.get("name") != null) {
                         name = map.get("name").toString();
                         mName3.setText(name);
                     }
-                    if(map.get("phone")!=null) {
+                    if (map.get("phone") != null) {
                         phone = map.get("phone").toString();
                         mPhone.setText(phone);
                     }
-                    if(map.get("bio")!=null) {
+                    if (map.get("bio") != null) {
                         bio = map.get("bio").toString();
                         mBio.setText(bio);
                     }
-                    if(map.get("age")!=null) {
+                    if (map.get("age") != null) {
                         age = map.get("age").toString();
                         mAge.setText(age);
                     }
-                    if(map.get("status")!=null) {
+                    if (map.get("status") != null) {
                         userStatus = map.get("status").toString();
                     }
-                    if(map.get("phone")!=null) {
+                    if (map.get("phone") != null) {
                         phone = map.get("phone").toString();
                         mPhone.setText(phone);
-                        Context context=getApplicationContext();
-                    Glide.with(context).clear(mProfilePic);
-                    if(map.get("profileImageUrl")!=null) {
-                        profileImageUrl = map.get("profileImageUrl").toString();}
-                        switch (profileImageUrl){
+                        Context context = getApplicationContext();
+                        Glide.with(context).clear(mProfilePic);
+                        if (map.get("profileImageUrl") != null) {
+                            profileImageUrl = map.get("profileImageUrl").toString();
+                        }
+                        switch (profileImageUrl) {
                             case "default":
                                 Glide.with(getApplication()).load(R.drawable.logofinal).into(mProfilePic);
                                 break;
@@ -240,26 +240,26 @@ public class AccountProfile extends BaseActivity {
 
     private void saveUserInfo() {
         name = mName3.getText().toString();
-        phone=mPhone.getText().toString();
+        phone = mPhone.getText().toString();
         age = mAge.getText().toString();
         bio = mBio.getText().toString();
         Map userInfo = new HashMap();
-        userInfo.put("name",name);
-        userInfo.put("phone",phone);
-        userInfo.put("age",age);
-        userInfo.put("bio",bio);
+        userInfo.put("name", name);
+        userInfo.put("phone", phone);
+        userInfo.put("age", age);
+        userInfo.put("bio", bio);
         mVolDb.updateChildren(userInfo);
-        if(resultUri!=null){
+        if (resultUri != null) {
             StorageReference filepath = FirebaseStorage.getInstance("gs://voluntr-f211c.appspot.com").getReference().child("profileimages").child(userId);
             Bitmap bitmap = null;
             try {
-                bitmap = MediaStore.Images.Media.getBitmap(getApplication().getContentResolver(),resultUri);
+                bitmap = MediaStore.Images.Media.getBitmap(getApplication().getContentResolver(), resultUri);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
 
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100,baos);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
             byte[] data = baos.toByteArray();
             UploadTask uploadTask = filepath.putBytes(data);
             filepath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -270,7 +270,7 @@ public class AccountProfile extends BaseActivity {
                     Map userInfo = new HashMap();
                     userInfo.put("profileImageUrl", downloadUrl.toString());
                     mVolDb.updateChildren(userInfo);
-                    Toast.makeText(AccountProfile.this,"Works",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AccountProfile.this, "Works", Toast.LENGTH_SHORT).show();
                     finish();
                     return;
                     // Do something with the download URL
@@ -279,19 +279,19 @@ public class AccountProfile extends BaseActivity {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     // Handle unsuccessful download URL retrieval
-                    Toast.makeText(AccountProfile.this,"Doesnt work",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AccountProfile.this, "Doesnt work", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             });
 
 
         }
-        Toast.makeText(AccountProfile.this,"Profile Updated",Toast.LENGTH_SHORT);
+        Toast.makeText(AccountProfile.this, "Profile Updated", Toast.LENGTH_SHORT);
     }
 
     public void logoutUser(android.view.View view) {
         mAuth.signOut();
-        Intent intent = new Intent(AccountProfile.this,LoginRegActivity.class);
+        Intent intent = new Intent(AccountProfile.this, LoginRegActivity.class);
         startActivity(intent);
         finish();
     }

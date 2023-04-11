@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".MainActivity">
-    <com.example.voluntr.ViewPagerCustomDuration
+    tools:context=".MainPage.MainActivity">
+    <com.example.voluntr.TutorialPage.ViewPagerCustomDuration
 
     android:id="@+id/slideViewPager"
     android:layout_width="match_parent"

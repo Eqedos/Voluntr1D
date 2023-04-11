@@ -1,17 +1,18 @@
-package com.example.voluntr;
+package com.example.voluntr.TutorialPage;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
+
+import com.example.voluntr.LoginRegister.LoginRegActivity;
+import com.example.voluntr.R;
 
 public class ViewPagerActivity extends AppCompatActivity {
     Button skipbtn;
@@ -36,7 +37,7 @@ public class ViewPagerActivity extends AppCompatActivity {
         skipbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(ViewPagerActivity.this,LoginRegActivity.class);
+                Intent i=new Intent(ViewPagerActivity.this, LoginRegActivity.class);
                 startActivity(i);
                 finish();
                 return;

@@ -1,4 +1,4 @@
-package com.example.voluntr;
+package com.example.voluntr.ChatBox;
 
 public class ChatBoxObject {
     private String message;

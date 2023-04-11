@@ -39,7 +39,7 @@
             android:background="@drawable/roundborders"
             android:orientation="vertical"
             android:padding="16dp"
-            tools:context=".AccountProfile">
+            tools:context=".Profile.AccountProfile">
 
             <RelativeLayout
                 android:layout_width="match_parent"

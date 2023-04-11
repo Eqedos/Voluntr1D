@@ -1,4 +1,4 @@
-package com.example.voluntr;
+package com.example.voluntr.TutorialPage;
 
 import android.view.View;
 

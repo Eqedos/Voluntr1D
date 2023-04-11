@@ -1,6 +1,6 @@
-package com.example.voluntr;
+package com.example.voluntr.MainPage;
 
-public class orgcards {
+public class OrgCards {
 
     private String userId; //different from the one below
     private String name;
@@ -16,7 +16,7 @@ public class orgcards {
         this.age = age;
     }
 
-    public orgcards (String userId, String  name, String profileImageUrl, String age){
+    public OrgCards(String userId, String  name, String profileImageUrl, String age){
         this.userId = userId;
         this.name = name;
         this.profileImageUrl = profileImageUrl;

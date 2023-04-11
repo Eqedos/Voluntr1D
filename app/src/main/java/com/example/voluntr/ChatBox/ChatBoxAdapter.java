@@ -1,4 +1,4 @@
-package com.example.voluntr;
+package com.example.voluntr.ChatBox;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -10,9 +10,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.voluntr.R;
+
 import java.util.List;
 
-public class ChatBoxAdapter extends RecyclerView.Adapter<chatboxviewholder> {
+public class ChatBoxAdapter extends RecyclerView.Adapter<ChatBoxViewHolder> {
     private List<ChatBoxObject> chatList;
     private Context context;
 
@@ -22,18 +24,18 @@ public class ChatBoxAdapter extends RecyclerView.Adapter<chatboxviewholder> {
     }
     @NonNull
     @Override
-    public chatboxviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ChatBoxViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View layoutsv = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_chatbox, null, false);
         RecyclerView.LayoutParams layp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutsv.setLayoutParams(layp);
-        chatboxviewholder rcv = new chatboxviewholder((layoutsv));
+        ChatBoxViewHolder rcv = new ChatBoxViewHolder((layoutsv));
 
 
         return rcv;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull chatboxviewholder holder, int position) {
+    public void onBindViewHolder(@NonNull ChatBoxViewHolder holder, int position) {
             holder.mMessage.setText(chatList.get(position).getMessage());
             if(chatList.get(position).getCurrentUser()){
                 holder.mMessage.setGravity(Gravity.END);

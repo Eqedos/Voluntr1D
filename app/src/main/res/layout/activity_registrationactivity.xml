@@ -27,7 +27,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/cornerrounded"
     android:backgroundTint="@color/white"
-    tools:context=".registrationactivity"
+    tools:context=".LoginRegister.RegistrationActivity"
     android:orientation="vertical"
     android:layout_marginTop="10dp">
     <TextView

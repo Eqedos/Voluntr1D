@@ -1,9 +1,7 @@
-package com.example.voluntr;
+package com.example.voluntr.MainPage;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -11,17 +9,19 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.voluntr.BaseActivity;
+import com.example.voluntr.Chats.ChatActivity;
+import com.example.voluntr.Profile.AccountProfile;
+import com.example.voluntr.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -38,13 +38,13 @@ import java.util.List;
 public class MainActivity extends BaseActivity {
 
 
-    private orgcards cards_data[];
-    private arrayAdapter arrayAdapter;
+    private OrgCards cards_data[];
+    private ArrayAdapter arrayAdapter;
     private FirebaseAuth mAuth;
     private DatabaseReference usersDb;
 
     ListView listView;
-    List<orgcards> rowItems;
+    List<OrgCards> rowItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +55,10 @@ public class MainActivity extends BaseActivity {
         mAuth=FirebaseAuth.getInstance(); //Gets the current user
         String currentUId=mAuth.getCurrentUser().getUid();
         checkUserPreferences(); //Checks if user is organiser/volunteer
-        rowItems = new ArrayList<orgcards>();//s
+        rowItems = new ArrayList<OrgCards>();//s
 
 
-        arrayAdapter = new arrayAdapter(this, R.layout.item, rowItems );
+        arrayAdapter = new ArrayAdapter(this, R.layout.item, rowItems );
 
         SwipeFlingAdapterView flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame);
 
@@ -75,7 +75,7 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onLeftCardExit(Object dataObject) {
-                orgcards object1 = (orgcards) dataObject;
+                OrgCards object1 = (OrgCards) dataObject;
                 String userId = object1.getUserId();
                 usersDb.child(userId).child("connections").child("No").child(currentUId).setValue(true);
                 Toast.makeText(MainActivity.this,"left", Toast.LENGTH_SHORT).show(); //Makes small bubble with the text
@@ -83,7 +83,7 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onRightCardExit(Object dataObject) {
-                orgcards object1 = (orgcards) dataObject;
+                OrgCards object1 = (OrgCards) dataObject;
                 String userId = object1.getUserId();
                 usersDb.child(userId).child("connections").child("Yes").child(currentUId).setValue(true);
                 usersDb.child(currentUId).child("connections").child("Yes").child(userId).setValue(true);
@@ -148,7 +148,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onItemClicked(int itemPosition, Object dataObject) {
                 Toast.makeText(MainActivity.this,"click", Toast.LENGTH_SHORT).show();
-                orgcards object1 = (orgcards) dataObject;
+                OrgCards object1 = (OrgCards) dataObject;
                 String userId = object1.getUserId();
                 DatabaseReference bioRef = usersDb.child(userId).child("bio");
                 bioRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -244,7 +244,7 @@ public class MainActivity extends BaseActivity {
                     if (snapshot.child("age").exists() && snapshot.child("age").getValue() != null) {
                         age = snapshot.child("age").getValue().toString();
                     }
-                    orgcards item = new orgcards(snapshot.getKey(), name, profileImageUrl, age);
+                    OrgCards item = new OrgCards(snapshot.getKey(), name, profileImageUrl, age);
                     rowItems.add(item);
                     arrayAdapter.notifyDataSetChanged();
                 }
@@ -273,13 +273,13 @@ public class MainActivity extends BaseActivity {
         });
     }
         public void goToProfile(android.view.View view) {
-        Intent intent = new Intent(MainActivity.this,AccountProfile.class);
+        Intent intent = new Intent(MainActivity.this, AccountProfile.class);
         startActivity(intent);
         return;
         }
 
     public void goToChat(android.view.View view) {
-        Intent intent = new Intent(MainActivity.this,ChatActivity.class);
+        Intent intent = new Intent(MainActivity.this, ChatActivity.class);
         startActivity(intent);
         return;
     }

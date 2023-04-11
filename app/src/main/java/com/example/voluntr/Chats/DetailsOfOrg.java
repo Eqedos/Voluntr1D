@@ -1,4 +1,4 @@
-package com.example.voluntr;
+package com.example.voluntr.Chats;
 
 public class DetailsOfOrg {
     private String userId;
