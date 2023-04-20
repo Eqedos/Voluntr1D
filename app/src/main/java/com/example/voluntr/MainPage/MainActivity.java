@@ -5,10 +5,13 @@ import androidx.annotation.Nullable;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -34,6 +37,8 @@ import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class MainActivity extends BaseActivity {
 
@@ -209,20 +214,38 @@ public class MainActivity extends BaseActivity {
 
         ImageView rightSwipeImage = dialog.findViewById(R.id.right_swipe_image);
         int drawableResourceId = getResources().getIdentifier(imgpath, "drawable", getPackageName());
-        Glide.with(MainActivity.this)
-                .load(drawableResourceId)
-                .into(rightSwipeImage);
 
-        dialog.show();
-
-        // Set a timer to automatically dismiss the dialog after a certain duration (e.g., 2 seconds)
-        new Handler().postDelayed(new Runnable() {
+        // Load the image on a background thread using ExecutorService
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(new Runnable() {
             @Override
             public void run() {
-                dialog.dismiss();
+                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), drawableResourceId);
+
+                // Display the image on the UI thread using Glide
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Glide.with(MainActivity.this)
+                                .load(bitmap)
+                                .into(rightSwipeImage);
+
+                        // Show the dialog
+                        dialog.show();
+
+                        // Set a timer to automatically dismiss the dialog after a certain duration (e.g., 2 seconds)
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                dialog.dismiss();
+                            }
+                        }, 1000);
+                    }
+                });
             }
-        }, 1000);
+        });
     }
+
 
     public void getOppositeStatusUser(){
         String currentUId=mAuth.getCurrentUser().getUid();
