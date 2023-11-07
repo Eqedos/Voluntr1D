@@ -1,6 +1,9 @@
 # Voluntr
 
-![2 (2)](https://github.com/Eqedos/Voluntr1D/assets/113342246/6f08048a-59b8-4278-8739-226bd0cc973f)
+<p align="center">
+  <img src="https://github.com/Eqedos/Voluntr1D/assets/113342246/6f08048a-59b8-4278-8739-226bd0cc973f"
+ width="200" /> <!-- Adjust the width as necessary -->
+</p>
 
 Voluntr is a Tinder-like platform for altruistic engagement, designed to seamlessly connect organizations with enthusiastic volunteers. Crafted with Java and Firebase, it's a school project aimed at making volunteerism more accessible and engaging.
 
