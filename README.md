@@ -20,13 +20,14 @@ Voluntr is a Tinder-like platform for altruistic engagement, designed to seamles
 
 > **Note**: This application was developed as a school project. The Firebase key included in this project is expired, and you will need to configure your own Firebase project to use this application.
 
-![image](https://github.com/Eqedos/Voluntr1D/assets/113342246/73510e88-7d0e-4585-9775-20e00d14cc56)
-![image](https://github.com/Eqedos/Voluntr1D/assets/113342246/46dfa4ae-1528-48f0-ab8c-58d7f6785bd2)
-![image](https://github.com/Eqedos/Voluntr1D/assets/113342246/4adc8fba-635a-4a3a-838d-d314c7ecde81)
-![image](https://github.com/Eqedos/Voluntr1D/assets/113342246/af5fee8a-24cc-4920-94d3-c0fe07bee17d)
-![image](https://github.com/Eqedos/Voluntr1D/assets/113342246/6871973e-8e5e-467c-bd00-42affb4ffd08)
-![image](https://github.com/Eqedos/Voluntr1D/assets/113342246/f51c07ff-d78e-49da-8416-f6e7c957b50c)
-
+<p float="left">
+  <img src="https://github.com/Eqedos/Voluntr1D/assets/113342246/73510e88-7d0e-4585-9775-20e00d14cc56" width="100" />
+  <img src="https://github.com/Eqedos/Voluntr1D/assets/113342246/46dfa4ae-1528-48f0-ab8c-58d7f6785bd2" width="100" /> 
+  <img src="https://github.com/Eqedos/Voluntr1D/assets/113342246/4adc8fba-635a-4a3a-838d-d314c7ecde81" width="100" />
+  <img src="https://github.com/Eqedos/Voluntr1D/assets/113342246/af5fee8a-24cc-4920-94d3-c0fe07bee17d" width="100" />
+  <img src="https://github.com/Eqedos/Voluntr1D/assets/113342246/6871973e-8e5e-467c-bd00-42affb4ffd08" width="100" />
+  <img src="https://github.com/Eqedos/Voluntr1D/assets/113342246/f51c07ff-d78e-49da-8416-f6e7c957b50c" width="100" />
+</p>
 
 
 ## Features
