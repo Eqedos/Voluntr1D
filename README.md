@@ -68,3 +68,6 @@ This project is brought to you by the dedicated students of SUTD.
 For any queries or further information, please contact me @Eqedos.
 
 ## Poster
+
+![Add a little bit of body text](https://github.com/Eqedos/Voluntr1D/assets/113342246/7bf73ed6-086c-4a35-a807-a49175b0f319)
+
